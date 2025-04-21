@@ -42,8 +42,8 @@
     "hints": [],
     "defaultCode": "function main(input) {\n  // 請在 main 函式裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
     "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
-    "exampleCode": "function main(input) {\n  // 請在 main 函式裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n  console.log(\"hello, \" + input);\n}",
-    "examplePythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  print(f\"hello, {input}\")\n",
+    "exampleCode": "function main(input) {\n  console.log(\"hello, \" + input);\n}",
+    "examplePythonCode": "def main(input):\n  print('hello, ' + str(input))\n",
     "testCases": [
         {
             "input": [
@@ -86,6 +86,24 @@
                 "123"
             ],
             "expectedOutput": "hello, 123"
+        },
+        {
+            "input": [
+                "!@#$%^&*()"
+            ],
+            "expectedOutput": "hello, !@#$%^&*()"
+        },
+        {
+            "input": [
+                "abc123xyz"
+            ],
+            "expectedOutput": "hello, abc123xyz"
+        },
+        {
+            "input": [
+                "  spaced  "
+            ],
+            "expectedOutput": "hello,   spaced  "
         }
     ]
 }

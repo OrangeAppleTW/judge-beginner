@@ -645,7 +645,7 @@ function runJavaScriptCode() {
                         allPassed = false;
                         console.log(`JS Mismatch (Case ${index+1}):\nExpected: "${testCase.expectedOutput}"\nActual:   "${actualOutput}"`);
                     }
-                    outputDetail = `<strong>本次輸入</strong>${formatInputArrayForPre(testCase.input)}<strong>預期輸出</strong>${formatValueForPlaintextPre(testCase.expectedOutput)}<strong>實際輸出 (console.log)</strong>${formatValueForPlaintextPre(actualOutput)}`;
+                    outputDetail = `<strong>本次輸入</strong>${formatInputArrayForPre(testCase.input)}<strong>預期輸出</strong>${formatValueForPlaintextPre(testCase.expectedOutput)}<strong>實際輸出</strong>${formatValueForPlaintextPre(actualOutput)}`;
                 } catch (runtimeError) {
                     executionTime = (performance.now() - startTime).toFixed(2);
                     statusClass = 'error'; statusText = '執行錯誤'; statusIcon = '<i class="fas fa-exclamation-triangle"></i>';
@@ -748,14 +748,14 @@ async function runPythonCode() {
                 if (errorOutput) {
                     statusClass = 'error'; statusText = '執行錯誤'; statusIcon = '<i class="fas fa-exclamation-triangle"></i>';
                     allPassed = false; hasError = true;
-                    outputDetail = `<strong>輸入 (函式參數)：</strong>${formatInputArrayForPre(testCase.input)}<strong>預期輸出 (stdout)：</strong>${formatValueForPlaintextPre(testCase.expectedOutput)}<strong>實際輸出 (stdout)：</strong>${formatValueForPlaintextPre(actualOutput)}<strong style="color: var(--danger-color); display: block; margin-top: 10px;">標準錯誤輸出 (stderr)：</strong><pre class="error-message"><code>${escapeHtml(errorOutput)}</code></pre>`;
+                    outputDetail = `<strong>本次輸入</strong>${formatInputArrayForPre(testCase.input)}<strong>預期輸出</strong>${formatValueForPlaintextPre(testCase.expectedOutput)}<strong>實際輸出</strong>${formatValueForPlaintextPre(actualOutput)}<strong style="color: var(--danger-color); display: block; margin-top: 10px;">標準錯誤輸出 (stderr)：</strong><pre class="error-message"><code>${escapeHtml(errorOutput)}</code></pre>`;
                     console.error(`Python Case ${index + 1} Stderr Captured:\n`, capturedStderr);
                 } else if (actualOutput === testCase.expectedOutput) {
                     statusClass = 'pass'; statusText = '通過'; statusIcon = '<i class="fas fa-check"></i>';
-                    outputDetail = `<strong>輸入 (函式參數)：</strong>${formatInputArrayForPre(testCase.input)}<strong>預期輸出 (stdout)：</strong>${formatValueForPlaintextPre(testCase.expectedOutput)}<strong>實際輸出 (stdout)：</strong>${formatValueForPlaintextPre(actualOutput)}`;
+                    outputDetail = `<strong>本次輸入</strong>${formatInputArrayForPre(testCase.input)}<strong>預期輸出</strong>${formatValueForPlaintextPre(testCase.expectedOutput)}<strong>實際輸出</strong>${formatValueForPlaintextPre(actualOutput)}`;
                 } else {
                     allPassed = false; statusClass = 'fail'; statusText = '未通過'; statusIcon = '<i class="fas fa-times"></i>';
-                    outputDetail = `<strong>輸入 (函式參數)：</strong>${formatInputArrayForPre(testCase.input)}<strong>預期輸出 (stdout)：</strong>${formatValueForPlaintextPre(testCase.expectedOutput)}<strong>實際輸出 (stdout)：</strong>${formatValueForPlaintextPre(actualOutput)}`;
+                    outputDetail = `<strong>本次輸入</strong>${formatInputArrayForPre(testCase.input)}<strong>預期輸出</strong>${formatValueForPlaintextPre(testCase.expectedOutput)}<strong>實際輸出</strong>${formatValueForPlaintextPre(actualOutput)}`;
                     console.log(`Python Mismatch (Case ${index+1}):\nExpected: "${testCase.expectedOutput}" (Length: ${testCase.expectedOutput ? testCase.expectedOutput.length : 0})\nActual:   "${actualOutput}" (Length: ${actualOutput.length})`);
                 }
             } catch (runPythonError) {
@@ -769,7 +769,7 @@ async function runPythonCode() {
                 else errorMessage = escapeHtml(errorMessage);
                 let detailedErrorMessage = `<pre class="error-message"><code>${errorMessage}</code></pre>`;
                 if (errorOutput && !errorMessage.includes(errorOutput.split('\n')[0])) detailedErrorMessage += `<strong style="color: var(--danger-color); display:block; margin-top:10px;">標準錯誤輸出 (stderr)：</strong><pre class="error-message"><code>${escapeHtml(errorOutput)}</code></pre>`;
-                outputDetail = `<strong>輸入 (函式參數)：</strong>${formatInputArrayForPre(testCase.input)}<strong>錯誤訊息:</strong>${detailedErrorMessage}`;
+                outputDetail = `<strong>本次輸入</strong>${formatInputArrayForPre(testCase.input)}<strong>錯誤訊息:</strong>${detailedErrorMessage}`;
                 console.error(`[Py Case ${index + 1}] Pyodide Runtime Error:`, runPythonError);
                 console.error(`[Py Case ${index + 1}] Captured Stderr:\n`, capturedStderr);
             }
