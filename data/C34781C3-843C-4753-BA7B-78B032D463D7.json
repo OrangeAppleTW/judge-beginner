@@ -4,7 +4,8 @@
     "pythonFunctionName": "main",
     "descriptionContentHTML": "<p>請寫一個程式，讀入一個輸入，判斷它是奇數還是偶數。</p><p>如果是偶數，請輸出字串 <code>偶數</code>；如果是奇數，請輸出字串 <code>奇數</code>。</p>",
     "inputFormat": [
-        "輸入總共一行，這個輸入的轉成數字後，不是負整數。"
+        "輸入總共一行，包含一個非負整數 <code>input</code>。",
+        "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
     ],
     "outputFormat": [
         "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出 <code>偶數</code> 或 <code>奇數</code>。",
@@ -44,9 +45,9 @@
         "可以使用 <code>%</code> 運算子來取得餘數。",
         "你需要用到 <code>if...else</code> 條件判斷語句。"
     ],
-    "defaultCode": "function main(input) {\n  // 請在 main 函式裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+    "defaultCode": "function main(input) {\n  // 請在此函數內完成你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
     "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
-    "exampleCode": "function main(input) {\n  if (input % 2 === 0) {\n    console.log('偶數');\n  } else {\n    console.log('奇數');\n  }\n}",
+    "exampleCode": "function main(input) {\n  const num = parseInt(input);\n  if (num % 2 === 0) {\n    console.log('偶數');\n  } else {\n    console.log('奇數');\n  }\n}",
     "examplePythonCode": "def main(input):\n  if int(input) % 2 == 0:\n    print('偶數')\n  else:\n    print('奇數')\n",
     "testCases": [
         {

@@ -1,0 +1,119 @@
+{
+  "title": "計算矩形面積",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個函式，讀入兩個代表矩形長度和寬度的數字 <code>input1</code> 和 <code>input2</code>，並計算及輸出該矩形的面積。</p><p>這個練習可以幫助你熟悉處理多個輸入以及基本的數學運算。</p>",
+  "inputFormat": [
+    "輸入總共有兩行。",
+    "第一行包含一個代表矩形長度的數字 <code>input1</code>。",
+    "第二行包含一個代表矩形寬度的數字 <code>input2</code>。",
+    "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出計算出的面積。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出計算出的面積。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "10",
+        "5"
+      ],
+      "output": [
+        "50"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "7",
+        "3"
+      ],
+      "output": [
+        "21"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "你需要讀取兩個輸入值：長度和寬度。",
+    "思考一下如何將代表數字的<strong>字串</strong>轉換成真正的數字進行計算？ (提示：<code>parseInt()</code> 或 <code>Number()</code> for JS, <code>int()</code> for Python)",
+    "計算面積需要使用哪種數學運算子？ (提示：<code>*</code>)"
+  ],
+  "defaultCode": "function main(input1, input2) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input1, input2):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input1, input2) {\n  const length = parseInt(input1);\n  const width = parseInt(input2);\n  const area = length * width;\n  console.log(area);\n}",
+  "examplePythonCode": "def main(input1, input2):\n  length = int(input1)\n  width = int(input2)\n  area = length * width\n  print(area)\n",
+  "testCases": [
+    {
+      "input": [
+        "10",
+        "5"
+      ],
+      "expectedOutput": "50"
+    },
+    {
+      "input": [
+        "7",
+        "3"
+      ],
+      "expectedOutput": "21"
+    },
+    {
+      "input": [
+        "1",
+        "1"
+      ],
+      "expectedOutput": "1"
+    },
+    {
+      "input": [
+        "100",
+        "100"
+      ],
+      "expectedOutput": "10000"
+    },
+    {
+      "input": [
+        "0",
+        "10"
+      ],
+      "expectedOutput": "0"
+    },
+    {
+      "input": [
+        "10",
+        "0"
+      ],
+      "expectedOutput": "0"
+    },
+    {
+      "input": [
+        "0",
+        "0"
+      ],
+      "expectedOutput": "0"
+    },
+    {
+      "input": [
+        "123",
+        "456"
+      ],
+      "expectedOutput": "56088"
+    },
+    {
+      "input": [
+        "99",
+        "99"
+      ],
+      "expectedOutput": "9801"
+    },
+    {
+      "input": [
+        "5",
+        "20"
+      ],
+      "expectedOutput": "100"
+    }
+  ]
+}

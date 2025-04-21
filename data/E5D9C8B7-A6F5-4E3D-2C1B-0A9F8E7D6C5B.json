@@ -1,0 +1,123 @@
+{
+    "title": "字串反轉",
+    "functionName": "main",
+    "pythonFunctionName": "main",
+    "descriptionContentHTML": "<p>請寫一個程式，讀入一個字串，然後將其反轉後輸出。</p><p>例如：輸入字串 <code>hello</code>，應輸出 <code>olleh</code>。</p>",
+    "inputFormat": [
+        "輸入總共一行，內含一個字串 <code>input</code>。"
+    ],
+    "outputFormat": [
+        "<strong>JavaScript：</strong> 使用 <code>console.log()</code> 輸出反轉後的字串。",
+        "<strong>Python：</strong> 使用 <code>print()</code> 輸出反轉後的字串。"
+    ],
+    "examples": [
+        {
+            "input": [
+                "hello"
+            ],
+            "output": [
+                "olleh"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "world"
+            ],
+            "output": [
+                "dlrow"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "a"
+            ],
+            "output": [
+                "a"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                ""
+            ],
+            "output": [
+                ""
+            ],
+            "explanation": ""
+        }
+    ],
+    "hints": [
+        "思考如何逐一取得字串中的每個字元？",
+        "如何將取得的字元以相反的順序組合起來？",
+        "JavaScript 中可以將字串轉換成陣列處理，或使用迴圈。",
+        "Python 中可以使用字串切片 (slicing) 的技巧，或者使用迴圈。"
+    ],
+    "defaultCode": "function main(input) {\n  // 請在此函數內完成你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+    "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+    "exampleCode": "function main(input) {\n  let reversed = '';\n  for (let i = input.length - 1; i >= 0; i--) {\n    reversed += input[i];\n  }\n  console.log(reversed);\n}",
+    "examplePythonCode": "def main(input):\n  reversed_string = \"\"\n  for char in input:\n    reversed_string = char + reversed_string\n  print(reversed_string)\n",
+    "testCases": [
+        {
+            "input": [
+                "abc"
+            ],
+            "expectedOutput": "cba"
+        },
+        {
+            "input": [
+                "racecar"
+            ],
+            "expectedOutput": "racecar"
+        },
+        {
+            "input": [
+                "12345"
+            ],
+            "expectedOutput": "54321"
+        },
+        {
+            "input": [
+                "!@#$"
+            ],
+            "expectedOutput": "$#@!"
+        },
+        {
+            "input": [
+                " "
+            ],
+            "expectedOutput": " "
+        },
+        {
+            "input": [
+                "  "
+            ],
+            "expectedOutput": "  "
+        },
+        {
+            "input": [
+                "hello world"
+            ],
+            "expectedOutput": "dlrow olleh"
+        },
+        {
+            "input": [
+                "Python"
+            ],
+            "expectedOutput": "nohtyP"
+        },
+        {
+            "input": [
+                "JavaScript"
+            ],
+            "expectedOutput": "tpircSavaJ"
+        },
+        {
+            "input": [
+                "測試中文"
+            ],
+            "expectedOutput": "文中試測"
+        }
+    ]
+}

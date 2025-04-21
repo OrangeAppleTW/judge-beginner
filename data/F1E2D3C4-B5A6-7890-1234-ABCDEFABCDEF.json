@@ -1,0 +1,129 @@
+{
+    "title": "比較大小",
+    "functionName": "main",
+    "pythonFunctionName": "main",
+    "descriptionContentHTML": "<p>請寫一個程式，讀入兩個整數，並比較它們的大小。</p><ul><li>如果第一個數字大於第二個數字，請輸出字串 <code>第一個數比較大</code>。</li><li>如果第二個數字大於第一個數字，請輸出字串 <code>第二個數比較大</code>。</li><li>如果兩個數字相等，請輸出字串 <code>兩個數相等</code>。</li></ul><p>這是一個練習條件判斷的好機會！</p>",
+    "inputFormat": [
+        "輸入共有兩行。",
+        "第一行是輸入的第一個整數 <code>input1</code>。",
+        "第二行是輸入的第二個整數 <code>input2</code>。",
+        "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+    ],
+    "outputFormat": [
+        "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出比較結果的字串。",
+        "<strong>Python：</strong> 請使用 <code>print()</code> 輸出比較結果的字串。"
+    ],
+    "examples": [
+        {
+            "input": [
+                "10",
+                "5"
+            ],
+            "output": [
+                "第一個數比較大"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "3",
+                "8"
+            ],
+            "output": [
+                "第二個數比較大"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "7",
+                "7"
+            ],
+            "output": [
+                "兩個數相等"
+            ],
+            "explanation": ""
+        }
+    ],
+    "hints": [
+        "你需要使用 <code>if...else if...else</code> 或類似的條件判斷結構。",
+        "記得先將輸入的字串轉換成數字才能進行比較。",
+        "比較運算子包括 <code>></code> (大於)、<code><</code> (小於) 和 <code>===</code> (等於，JavaScript) 或 <code>==</code> (等於，Python)。"
+    ],
+    "defaultCode": "function main(input1, input2) {\n  // 請在此函數內完成你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+    "defaultPythonCode": "def main(input1, input2):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+    "exampleCode": "function main(input1, input2) {\n  const num1 = parseInt(input1);\n  const num2 = parseInt(input2);\n\n  if (num1 > num2) {\n    console.log('第一個數比較大');\n  } else if (num2 > num1) {\n    console.log('第二個數比較大');\n  } else {\n    console.log('兩個數相等');\n  }\n}",
+    "examplePythonCode": "def main(input1, input2):\n  num1 = int(input1)\n  num2 = int(input2)\n\n  if num1 > num2:\n    print('第一個數比較大')\n  elif num2 > num1:\n    print('第二個數比較大')\n  else:\n    print('兩個數相等')\n",
+    "testCases": [
+        {
+            "input": [
+                "5",
+                "3"
+            ],
+            "expectedOutput": "第一個數比較大"
+        },
+        {
+            "input": [
+                "3",
+                "5"
+            ],
+            "expectedOutput": "第二個數比較大"
+        },
+        {
+            "input": [
+                "5",
+                "5"
+            ],
+            "expectedOutput": "兩個數相等"
+        },
+        {
+            "input": [
+                "0",
+                "0"
+            ],
+            "expectedOutput": "兩個數相等"
+        },
+        {
+            "input": [
+                "-5",
+                "3"
+            ],
+            "expectedOutput": "第二個數比較大"
+        },
+        {
+            "input": [
+                "3",
+                "-5"
+            ],
+            "expectedOutput": "第一個數比較大"
+        },
+        {
+            "input": [
+                "-5",
+                "-3"
+            ],
+            "expectedOutput": "第二個數比較大"
+        },
+        {
+            "input": [
+                "-3",
+                "-5"
+            ],
+            "expectedOutput": "第一個數比較大"
+        },
+        {
+            "input": [
+                "1000",
+                "999"
+            ],
+            "expectedOutput": "第一個數比較大"
+        },
+        {
+            "input": [
+                "-1000",
+                "-999"
+            ],
+            "expectedOutput": "第二個數比較大"
+        }
+    ]
+}

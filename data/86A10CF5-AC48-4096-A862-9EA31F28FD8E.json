@@ -4,9 +4,10 @@
     "pythonFunctionName": "main",
     "descriptionContentHTML": "<p>請寫一個程式，讀入兩個輸入，然後輸出這兩個輸入的和。</p><p>這是練習處理數字輸入和基本算術運算的好機會。</p>",
     "inputFormat": [
-        "輸入共有兩個，都是字串格式，你可能需要將它們轉換成數字才能進行數學運算。",
+        "輸入共有兩行。",
         "第一行是輸入的第一個整數 <code>input1</code>。",
-        "第二行是輸入的第二個整數 <code>input2</code>。"
+        "第二行是輸入的第二個整數 <code>input2</code>。",
+        "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
     ],
     "outputFormat": [
         "<strong>JavaScript：</strong> 使用 <code>console.log()</code> 輸出 <code>input1</code> 和 <code>input2</code> 的總和。",
@@ -48,7 +49,7 @@
         "JavaScript： 使用 <code>parseInt()</code> 將字串轉換為整數。",
         "Python： 使用 <code>int()</code> 將字串轉換為整數。"
     ],
-    "defaultCode": "function main(input1, input2) {\n  // 請在 main 函式裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+    "defaultCode": "function main(input1, input2) {\n  // 請在此函數內完成你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
     "defaultPythonCode": "def main(input1, input2):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
     "exampleCode": "function main(input1, input2) {\n  const a = parseInt(input1);\n  const b = parseInt(input2);\n  console.log(a + b);\n}",
     "examplePythonCode": "def main(input1, input2):\n  a = int(input1)\n  b = int(input2)\n  print(a + b)\n",

@@ -19,5 +19,33 @@
         "description": "讀入一個輸入並判斷其為奇數或偶數。",
         "order": 3,
         "pincode": 6789
+    },
+    {
+        "id": "E5D9C8B7-A6F5-4E3D-2C1B-0A9F8E7D6C5B",
+        "title": "字串反轉",
+        "description": "讀入一個輸入並將其反轉後輸出。",
+        "order": 4,
+        "pincode": 9173
+    },
+    {
+        "id": "A1B2C3D4-E5F6-7890-ABCD-EF1234567890",
+        "title": "計算矩形面積",
+        "description": "讀入矩形的長和寬，並輸出其面積。",
+        "order": 5,
+        "pincode": 5678
+    },
+    {
+        "id": "F1E2D3C4-B5A6-7890-1234-ABCDEFABCDEF",
+        "title": "比較大小",
+        "description": "讀入兩個整數並比較它們的大小。",
+        "order": 6,
+        "pincode": 1357
+    },
+    {
+        "id": "AB1D2715-DAA3-4B41-A8BB-DBF1A8AA366C",
+        "title": "計算數字總和",
+        "description": "讀入一行以空格分隔的數字，計算並輸出它們的總和。",
+        "order": 7,
+        "pincode": 8888
     }
 ]

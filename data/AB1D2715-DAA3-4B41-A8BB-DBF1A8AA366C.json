@@ -1,0 +1,119 @@
+{
+    "title": "計算數字總和",
+    "functionName": "main",
+    "pythonFunctionName": "main",
+    "descriptionContentHTML": "<p>請寫一個程式，讀入一行以空格分隔的數字字串，計算這些數字的總和並輸出結果。</p><p>這個練習可以幫助你熟悉處理字串分割、迴圈以及資料型態轉換。</p>",
+    "inputFormat": [
+        "輸入總共一行，包含一個或多個以<strong>空格</strong>分隔的整數字串 <code>input</code>。",
+        "輸入的資料會以<strong>字串</strong>格式傳入，你需要先將其分割成個別數字字串，然後再轉換成數字進行加總。"
+    ],
+    "outputFormat": [
+        "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出所有數字的總和。",
+        "<strong>Python：</strong> 請使用 <code>print()</code> 輸出所有數字的總和。"
+    ],
+    "examples": [
+        {
+            "input": [
+                "1 2 3 4 5"
+            ],
+            "output": [
+                "15"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "10 -5 20"
+            ],
+            "output": [
+                "25"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "100"
+            ],
+            "output": [
+                "100"
+            ],
+            "explanation": ""
+        }
+    ],
+    "hints": [
+        "你需要先將輸入的字串依照空格分割成一個陣列。",
+        "JavaScript： 可以使用字串的 <code>split(' ')</code> 方法。",
+        "Python： 可以使用字串的 <code>split()</code> 方法。",
+        "接著，你需要遍歷這個陣列，將每個字串元素轉換成數字。",
+        "JavaScript： 使用 <code>parseInt()</code>。",
+        "Python： 使用 <code>int()</code>。",
+        "在遍歷的過程中，將轉換後的數字累加起來。",
+        "最後輸出總和。"
+    ],
+    "defaultCode": "function main(input) {\n  // 請在此函數內完成你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+    "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+    "exampleCode": "function main(input) {\n  const numbers = input.split(' ');\n  let sum = 0;\n  for (let i = 0; i < numbers.length; i++) {\n    if (numbers[i]) {\n      sum += parseInt(numbers[i], 10);\n    }\n  }\n  console.log(sum);\n}",
+    "examplePythonCode": "def main(input):\n  numbers = input.split()\n  sum_val = 0\n  for num_str in numbers:\n    if num_str:\n      sum_val += int(num_str)\n  print(sum_val)\n",
+    "testCases": [
+        {
+            "input": [
+                "1 2 3"
+            ],
+            "expectedOutput": "6"
+        },
+        {
+            "input": [
+                "10 20 30 40 50"
+            ],
+            "expectedOutput": "150"
+        },
+        {
+            "input": [
+                "0 0 0"
+            ],
+            "expectedOutput": "0"
+        },
+        {
+            "input": [
+                "-1 -2 -3"
+            ],
+            "expectedOutput": "-6"
+        },
+        {
+            "input": [
+                "10 -5 3"
+            ],
+            "expectedOutput": "8"
+        },
+        {
+            "input": [
+                "100"
+            ],
+            "expectedOutput": "100"
+        },
+        {
+            "input": [
+                "-50"
+            ],
+            "expectedOutput": "-50"
+        },
+        {
+            "input": [
+                "1 1 1 1 1 1 1 1 1 1"
+            ],
+            "expectedOutput": "10"
+        },
+        {
+            "input": [
+                "5 -5 10 -10 100"
+            ],
+            "expectedOutput": "100"
+        },
+        {
+            "input": [
+                "0"
+            ],
+            "expectedOutput": "0"
+        }
+    ]
+}
