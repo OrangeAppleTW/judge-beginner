@@ -2,13 +2,22 @@
     {
         "id": "3A5FA4C1-B28E-469C-BB88-F238F5713CF3",
         "title": "哈囉世界",
+        "description": "學習程式語言的第一個練習：輸出指定的文字。",
         "order": 1,
         "pincode": 5139
     },
     {
         "id": "86A10CF5-AC48-4096-A862-9EA31F28FD8E",
         "title": "兩數相加",
+        "description": "讀入兩個整數並輸出它們的和。",
         "order": 2,
         "pincode": 4243
+    },
+    {
+        "id": "C34781C3-843C-4753-BA7B-78B032D463D7",
+        "title": "判斷奇偶數",
+        "description": "讀入一個非負整數並判斷其為奇數或偶數。",
+        "order": 3,
+        "pincode": 6789
     }
 ]

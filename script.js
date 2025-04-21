@@ -161,12 +161,22 @@ async function showProblemListView() {
         let problems = await resp.json();
         // Sort problems by order, defaulting to 0 if order is missing
         problems.sort((a, b) => (a.order || 0) - (b.order || 0));
-        for (const { id, title } of problems) {
+        for (const { id, title, description } of problems) { // <-- 新增讀取 description
             const li = document.createElement('li');
             const a = document.createElement('a');
             a.href = `#/problem/${id}`;
             a.textContent = title;
             li.appendChild(a);
+
+            // --- 新增的部分 ---
+            if (description) { // 檢查 description 是否存在
+                const p = document.createElement('p');
+                p.textContent = description;
+                p.className = 'problem-list-description'; // 加上 class 以便未來調整樣式
+                li.appendChild(p); // 將描述段落加到列表項目中
+            }
+            // --- 結束新增的部分 ---
+
             listUl.appendChild(li);
         }
     } catch (err) {
