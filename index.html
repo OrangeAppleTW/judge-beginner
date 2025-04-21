@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>載入中...</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="icon" href="static/icon-normal.png"> -->
+    <link rel="icon" href="static/icon.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']], // 行內公式分隔符
+                displayMath: [['$$', '$$'], ['\\[', '\\]']] // 區塊公式分隔符
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+</head>
+
+<body>
+    <nav class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="static/logo.png" alt="Logo">
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <section id="problem-list-view" class="card" style="display:none">
+            <div class="card-header">
+                <h2 style="font-size: 2.25rem;">題目列表</h2>
+            </div>
+            <div class="card-body">
+                <ul id="problem-list"></ul>
+                <p id="pincode-message" style="color: var(--danger-color); display:none;">無效的連結參數。</p>
+            </div>
+        </section>
+        <section class="card">
+            <div class="card-header">
+                <h1 id="main-title"></h1>
+            </div>
+            <div class="card-body">
+                <div id="problem-description">
+                    <h3>題目描述</h3>
+                    <div id="desc-content">
+                        <p>載入中...</p>
+                    </div>
+                    <h3>輸入說明</h3>
+                    <div id="input-format-content">
+                        <p>載入中...</p>
+                    </div>
+                    <h3>輸出說明</h3>
+                    <div id="output-format-content">
+                        <p>載入中...</p>
+                    </div>
+                    <h3>執行範例</h3>
+                    <div id="examples-content">
+                        <p>載入中...</p>
+                    </div>
+                    <h3>撰寫提示</h3>
+                    <div id="hints-content">
+                        <p>載入中...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <h2 class="card-title">程式碼編輯</h2>
+            </div>
+            <div class="card-body">
+                <div class="editor-container">
+                    <div class="editor-header">
+                        <div class="editor-title" id="editor-title">Python</div>
+                        <div class="editor-actions">
+                            <button id="reset-code" class="editor-btn" title="重置目前語言的程式碼 (Ctrl+Shift+R)">
+                                <i class="fas fa-undo"></i> 重置
+                            </button>
+                        </div>
+                    </div>
+                    <textarea id="user-code" spellcheck="false" aria-label="Code Editor"
+                        data-language="python"></textarea>
+                </div>
+
+                <input type="file" id="file-input" accept=".py,.js,.txt" style="display: none;">
+
+                <div class="button-container">
+                    <button id="run-button" class="btn btn-primary" title="執行程式碼 (Ctrl+Enter)" disabled>
+                        <i class="fas fa-play"></i>
+                        <span id="run-button-text">載入執行環境...</span>
+                    </button>
+                    <button id="save-code" class="btn btn-outline" title="儲存兩種語言的程式碼 (Ctrl+S)">
+                        <i class="fas fa-save"></i> 儲存
+                    </button>
+                    <button id="import-code" class="btn btn-outline" title="從檔案匯入目前語言的程式碼">
+                        <i class="fas fa-upload"></i> 匯入
+                    </button>
+                    <button id="export-code" class="btn btn-outline" title="將目前的程式碼匯出為檔案">
+                        <i class="fas fa-download"></i> 匯出
+                    </button>
+                    <button id="switch-editor-btn" class="btn btn-outline" title="切換編輯器語言">
+                        <i class="fas fa-exchange-alt"></i> 切換為 JavaScript
+                    </button>
+                    <button id="load-example-btn" class="btn btn-outline" title="輸入 Pincode 以載入範例解答"
+                        style="display: none;">
+                        <i class="fas fa-key"></i> 載入範例解答
+                    </button>
+                    <button id="view-pincode-btn" class="btn btn-outline" title="查看此題解答密碼" style="display: none;">
+                        <i class="fas fa-eye"></i> 查看解答密碼
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <h2 class="card-title">執行結果</h2>
+            </div>
+            <div class="card-body">
+                <div id="output">
+                    <div class="result-loading" id="initial-output-message">
+                        <i class="fas fa-spinner fa-spin"></i> 正在準備 Python 執行環境 (Pyodide)...
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="shortcuts-help" id="shortcuts-help">
+        <div class="shortcuts-title">
+            <span>鍵盤快捷鍵</span>
+            <button id="close-help"
+                style="background: none; border: none; cursor: pointer; font-size: 1.1rem; color: var(--text-secondary); padding: 0;"
+                aria-label="關閉快捷鍵說明">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="shortcut-list">
+            <li class="shortcut-item">
+                <span>執行程式碼 (JS & Python)</span>
+                <div class="shortcut-keys"><span class="key">Ctrl</span> + <span class="key">Enter</span></div>
+            </li>
+            <li class="shortcut-item">
+                <span>儲存程式碼 (JS & Python)</span>
+                <div class="shortcut-keys"><span class="key">Ctrl</span> + <span class="key">S</span></div>
+            </li>
+            <li class="shortcut-item">
+                <span>重置目前程式碼</span>
+                <div class="shortcut-keys"><span class="key">Ctrl</span> + <span class="key">Shift</span> + <span
+                        class="key">R</span></div>
+            </li>
+            <li class="shortcut-item">
+                <span>編輯器縮排</span>
+                <div class="shortcut-keys"><span class="key">Tab</span></div>
+            </li>
+            <li class="shortcut-item">
+                <span>編輯器反縮排</span>
+                <div class="shortcut-keys"><span class="key">Shift</span> + <span class="key">Tab</span></div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Pincode Modal Structure -->
+    <div id="pincode-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="close-modal-btn" class="close-modal-btn" title="關閉">&times;</span>
+            <h2>範例解答密碼</h2>
+            <p>請將此密碼提供給需要的學生來查看範例解答。</p>
+            <div class="pincode-display-container">
+                <span id="modal-pincode-display" class="pincode-text"></span>
+                <button id="copy-pincode-btn" class="btn btn-outline btn-small" title="複製密碼">
+                    <i class="fas fa-copy"></i> 複製
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- End Pincode Modal -->
+
+
+    <script src="script.js" defer></script>
+
+</body>
+
+</html>

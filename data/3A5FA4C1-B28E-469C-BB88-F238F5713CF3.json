@@ -1,0 +1,91 @@
+{
+    "title": "哈囉世界",
+    "functionName": "main",
+    "pythonFunctionName": "main",
+    "descriptionContentHTML": "<p>學習所有程式語言的第一個練習題！</p><p>請寫一個程式，可以讀入指定的字串。</p><p>例如：輸入字串 <code>world</code>，則請輸出 <code>hello, world</code>。</p>",
+    "inputFormat": [
+        "輸入總共一行，內含一組文字。"
+    ],
+    "outputFormat": [
+        "<strong>JavaScript：</strong> 使用 <code>console.log()</code> 輸出題目指定的文字。",
+        "<strong>Python：</strong> 使用 <code>print()</code> 輸出題目指定的文字。"
+    ],
+    "examples": [
+        {
+            "input": [
+                "world"
+            ],
+            "output": [
+                "hello, world"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "C++"
+            ],
+            "output": [
+                "hello, C++"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "Taiwan"
+            ],
+            "output": [
+                "hello, Taiwan"
+            ],
+            "explanation": ""
+        }
+    ],
+    "hints": [],
+    "defaultCode": "function main(input) {\n  // 請在 main 函式裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+    "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+    "exampleCode": "function main(input) {\n  // 請在 main 函式裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n  console.log(\"hello, \" + input);\n}",
+    "examplePythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  print(f\"hello, {input}\")\n",
+    "testCases": [
+        {
+            "input": [
+                "P"
+            ],
+            "expectedOutput": "hello, P"
+        },
+        {
+            "input": [
+                "hello"
+            ],
+            "expectedOutput": "hello, hello"
+        },
+        {
+            "input": [
+                ""
+            ],
+            "expectedOutput": "hello, "
+        },
+        {
+            "input": [
+                ","
+            ],
+            "expectedOutput": "hello, ,"
+        },
+        {
+            "input": [
+                "P PP "
+            ],
+            "expectedOutput": "hello, P PP "
+        },
+        {
+            "input": [
+                "你好"
+            ],
+            "expectedOutput": "hello, 你好"
+        },
+        {
+            "input": [
+                "123"
+            ],
+            "expectedOutput": "hello, 123"
+        }
+    ]
+}

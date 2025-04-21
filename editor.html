@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目編輯器</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        .form-section { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+        .form-section h2 { margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="number"], textarea {
+            width: 95%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        textarea { min-height: 100px; font-family: monospace; }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover { background-color: #0056b3; }
+        .dynamic-list-item { border: 1px dashed #eee; padding: 10px; margin-bottom: 10px; position: relative; }
+        .remove-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            line-height: 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+        #download-links a { display: block; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <h1>題目編輯器</h1>
+
+    <form id="problem-editor-form">
+
+        <div class="form-section">
+            <h2>現有 problems.json 內容</h2>
+            <label for="existing-problems-json">請將 data/problems.json 的內容貼到此處：</label>
+            <textarea id="existing-problems-json" rows="5" placeholder="[ ... ]"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h2>基本資訊</h2>
+            <label for="title">題目名稱 (title):</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="order">排序 (order):</label>
+            <input type="number" id="order" name="order" required>
+
+            <label for="pincode">Pincode:</label>
+            <input type="number" id="pincode" name="pincode" required>
+
+            <label for="functionName">JavaScript 函數名稱 (functionName):</label>
+            <input type="text" id="functionName" name="functionName" value="main" required>
+
+            <label for="pythonFunctionName">Python 函數名稱 (pythonFunctionName):</label>
+            <input type="text" id="pythonFunctionName" name="pythonFunctionName" value="main" required>
+        </div>
+
+        <div class="form-section">
+            <h2>題目內容</h2>
+            <label for="descriptionContentHTML">題目描述 (descriptionContentHTML - 可使用 HTML 標籤):</label>
+            <textarea id="descriptionContentHTML" name="descriptionContentHTML" rows="8" required></textarea>
+
+            <label for="inputFormat">輸入格式說明 (inputFormat - 每行一個說明):</label>
+            <textarea id="inputFormat" name="inputFormat" rows="3"></textarea>
+
+            <label for="outputFormat">輸出格式說明 (outputFormat - 每行一個說明):</label>
+            <textarea id="outputFormat" name="outputFormat" rows="3"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h2>範例 (examples)</h2>
+            <div id="examples-list">
+                <!-- Example items will be added here -->
+            </div>
+            <button type="button" id="add-example-btn">新增範例</button>
+        </div>
+
+        <div class="form-section">
+            <h2>提示 (hints)</h2>
+            <label for="hints">提示 (hints - 每行一個提示):</label>
+            <textarea id="hints" name="hints" rows="3"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h2>預設程式碼</h2>
+            <label for="defaultCode">JavaScript 預設程式碼 (defaultCode):</label>
+            <textarea id="defaultCode" name="defaultCode" rows="6">function main(input) {\n  // 請在 main 函式裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}</textarea>
+
+            <label for="defaultPythonCode">Python 預設程式碼 (defaultPythonCode):</label>
+            <textarea id="defaultPythonCode" name="defaultPythonCode" rows="6">def main(input):\n  """\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  """\n  </textarea>
+        </div>
+
+        <div class="form-section">
+            <h2>範例程式碼</h2>
+            <label for="exampleCode">JavaScript 範例程式碼 (exampleCode):</label>
+            <textarea id="exampleCode" name="exampleCode" rows="6"></textarea>
+
+            <label for="examplePythonCode">Python 範例程式碼 (examplePythonCode):</label>
+            <textarea id="examplePythonCode" name="examplePythonCode" rows="6"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h2>測試案例 (testCases)</h2>
+            <div id="testcases-list">
+                <!-- Test case items will be added here -->
+            </div>
+            <button type="button" id="add-testcase-btn">新增測試案例</button>
+        </div>
+
+        <button type="submit" id="generate-btn">產生檔案</button>
+    </form>
+
+    <div id="download-links" style="margin-top: 20px;">
+        <!-- Download links will appear here -->
+    </div>
+
+    <script src="editor.js"></script>
+</body>
+</html>

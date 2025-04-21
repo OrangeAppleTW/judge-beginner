@@ -1,0 +1,1096 @@
+/* --- 全局變數與基本樣式 --- */
+:root {
+    --primary-color: #4361ee;
+    --primary-hover: #3a56d4;
+    --secondary-color: #2b3a67;
+    --accent-color: #f72585;
+    --success-color: #06d6a0;
+    --warning-color: #ffd166;
+    --danger-color: #ef476f;
+    --light-bg: #f8f9fa;
+    --dark-bg: #212529;
+    /* Kept but not used without toggle */
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --transition-normal: all 0.3s ease;
+    --code-editor-bg: #f8f8f8;
+    --code-font-size: 15px;
+}
+
+/* Dark theme variables - kept but not currently used as there's no theme toggle logic */
+[data-theme="dark"] {
+    --primary-color: #4cc9f0;
+    --primary-hover: #3db8e0;
+    --secondary-color: #7209b7;
+    --light-bg: #1a1a2e;
+    --card-bg: #16213e;
+    --border-color: #2a2a3a;
+    --text-primary: #e2e8f0;
+    --text-secondary: #a0aec0;
+    --code-editor-bg: #1e1e2e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--light-bg);
+    color: var(--text-primary);
+    transition: var(--transition-normal);
+    min-height: 105vh;
+}
+
+/* --- Header, Container, Card --- */
+/* Note: .header styles are included but the header element itself was removed from the provided HTML structure */
+.header {
+    background-color: var(--card-bg);
+    padding: 10px 0;
+    /* box-shadow: var(--shadow-sm); */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--light-bg);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    padding: 10px 0;
+}
+
+.logo img {
+    height: 30px;
+    width: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: var(--transition-normal);
+}
+
+.card-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+/* --- Collapsible/Accordion Styles --- */
+.collapsible-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.collapsible-icon {
+    transition: transform 0.3s ease;
+    transform: rotate(0deg);
+    margin-left: 10px;
+}
+
+.collapsible-content {
+    overflow: hidden;
+    max-height: 2000px;
+    /* High value for initial state */
+    transition: max-height 0.5s ease-out;
+}
+
+.collapsed .collapsible-content {
+    max-height: 0;
+    /* Smooth collapse: ensure padding/borders are also transitioned or removed */
+    padding-top: 0;
+    padding-bottom: 0;
+    border-top: none;
+    border-bottom: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* We might need to transition opacity as well if needed, but max-height usually suffices */
+    /* opacity: 0; */
+}
+
+/* Ensure icon rotation happens only when explicitly not collapsed */
+.test-case:not(.collapsed) .collapsible-icon {
+    transform: rotate(180deg);
+}
+
+/* --- Typography & Problem Description Styles --- */
+h1,
+h2,
+h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.6em;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.25rem;
+    text-align: center;
+    margin: 0;
+}
+
+/* Adjusted margin for card header */
+h2 {
+    font-size: 1.5rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* Adjusted for card header */
+h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+#problem-description h3:first-of-type {
+    margin-top: 0;
+}
+
+/* Target specific content divs for consistent spacing */
+#desc-content p,
+#input-format-content p,
+#input-format-content ul,
+#output-format-content p,
+#output-format-content ul,
+#hints-content p,
+#hints-content ul {
+    margin-bottom: 0.5rem;
+    /* Adjusted spacing */
+    color: var(--text-secondary);
+}
+
+/* More specific list styling within description sections */
+#input-format-content ul,
+#output-format-content ul,
+#hints-content ul {
+    padding-left: 20px;
+    margin-top: 0;
+    /* Reset default ul margin */
+    list-style-position: outside;
+    /* Ensure bullets are outside */
+}
+
+#input-format-content li,
+#output-format-content li,
+#hints-content li {
+    margin-bottom: 0.5em;
+    color: var(--text-secondary);
+}
+
+code {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0.2em 0.45em;
+    margin: 0 0.1em;
+    font-size: 88%;
+    border-radius: var(--radius-sm);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: var(--accent-color);
+    /* Ensure inline code doesn't break inappropriately */
+    word-break: break-word;
+    /* Allow breaking long inline code */
+}
+
+/* Default pre style for code blocks (like in examples, results) */
+pre {
+    background-color: var(--code-editor-bg);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: var(--code-font-size);
+    line-height: 1.5;
+    border: 1px solid var(--border-color);
+    margin: 1rem 0;
+    /* Default margin */
+}
+
+/* Style for code specifically within a pre block */
+pre code {
+    background-color: transparent;
+    /* Reset background */
+    padding: 0;
+    /* Reset padding */
+    margin: 0;
+    /* Reset margin */
+    font-size: inherit;
+    /* Inherit font size from pre */
+    border-radius: 0;
+    /* Reset border radius */
+    color: inherit;
+    /* Inherit color from pre (allows parent to control) */
+    white-space: pre-wrap;
+    /* Allow wrapping within the pre block */
+    word-break: break-all;
+    /* Break long words/lines if needed */
+    display: block;
+    /* Ensure it takes block space for proper formatting */
+    line-height: inherit;
+    /* Inherit line height */
+}
+
+strong {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* General ul/li not inside specific description divs */
+ul {
+    padding-left: 20px;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+/* --- Code Editor Styles --- */
+.editor-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    padding: 8px 15px;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    color: white;
+}
+
+.editor-title {
+    font-weight: 500;
+}
+
+.editor-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.editor-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.editor-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#user-code {
+    width: 100%;
+    min-height: 300px;
+    /* Minimum height */
+    height: 400px;
+    /* Default height, resize handle allows adjustment */
+    padding: 16px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: var(--code-font-size);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    /* Connects to header */
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    resize: vertical;
+    /* Allow vertical resizing */
+    background-color: var(--code-editor-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    tab-size: 2;
+    /* Use 2 spaces for tabs */
+    white-space: pre;
+    /* Preserve whitespace and use pre-wrap within pre code */
+    overflow-wrap: normal;
+    /* Prevent auto line breaking for code */
+    overflow: auto;
+    /* Ensure scrollbars appear if content overflows */
+}
+
+/* --- Button Styles --- */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 0;
+    /* Remove bottom margin if buttons are last in card-body */
+    align-items: center;
+    /* Align items vertically */
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* Center content */
+    gap: 8px;
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    line-height: 1;
+    /* Ensure consistent height */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:disabled {
+    background-color: #adb5bd;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    color: #6c757d;
+}
+
+/* Disabled style */
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.btn-outline:hover {
+    background-color: var(--light-bg);
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Specific style for the switch button */
+#switch-editor-btn {
+    min-width: 160px;
+}
+
+/* Ensure minimum width for text consistency */
+
+/* --- Output & Results Area Styles --- */
+#output {
+    margin-top: 20px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    transition: var(--transition-normal);
+}
+
+/* Initial/Loading message style */
+.result-loading {
+    padding: 20px;
+    text-align: center;
+    color: var(--text-secondary);
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.result-loading.loading .fa-spinner {
+    animation: spin 1.5s linear infinite;
+}
+
+/* Ensure spinner spins */
+.result-loading.error {
+    color: var(--danger-color);
+    background-color: rgba(239, 71, 111, 0.05);
+    border-color: rgba(239, 71, 111, 0.2);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Overall summary bar */
+.overall-summary {
+    font-weight: 600;
+    font-size: 1.15rem;
+    padding: 15px 20px;
+    margin-bottom: 0;
+    /* Remove margin if it's directly above test cases */
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    /* Top corners rounded */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    /* Attach to container below */
+}
+
+.overall-pass {
+    background-color: rgba(6, 214, 160, 0.1);
+    color: var(--success-color);
+    border-color: rgba(6, 214, 160, 0.3);
+}
+
+.overall-fail {
+    background-color: rgba(239, 71, 111, 0.1);
+    color: var(--danger-color);
+    border-color: rgba(239, 71, 111, 0.3);
+}
+
+.overall-error {
+    background-color: rgba(255, 209, 102, 0.1);
+    color: var(--warning-color);
+    border-color: rgba(255, 209, 102, 0.3);
+}
+
+/* Container for individual test cases */
+.test-cases-container {
+    border: 1px solid var(--border-color);
+    border-top: none;
+    /* Remove top border as summary provides it */
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    /* Bottom corners rounded */
+    overflow: hidden;
+    /* Ensures child borders don't stick out */
+}
+
+/* Individual test case item */
+.test-case {
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+    background-color: var(--card-bg);
+}
+
+.test-case:last-child {
+    border-bottom: none;
+}
+
+/* No border for the last item */
+.test-case:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+/* Test case header (clickable part) */
+.test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    /* Added cursor */
+}
+
+.test-title {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Status badges */
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.pass {
+    background-color: rgba(6, 214, 160, 0.15);
+    color: var(--success-color);
+}
+
+.fail {
+    background-color: rgba(239, 71, 111, 0.15);
+    color: var(--danger-color);
+}
+
+.error {
+    background-color: rgba(255, 209, 102, 0.15);
+    color: var(--warning-color);
+}
+
+.test-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.execution-time {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* --- Result Details Styles (Collapsible Content) --- */
+.details {
+    /* This is the collapsible content area */
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.015);
+    /* Slightly different background */
+    border-top: 1px dashed var(--border-color);
+    /* Add separator line when expanded */
+    /* Transition is handled by .collapsible-content */
+}
+
+/* Style adjustments for pre within the details section */
+.details pre {
+    margin-top: 0;
+    margin-bottom: 8px;
+    padding: 10px 12px;
+    background-color: var(--card-bg);
+    /* Contrast within details bg */
+    font-size: 0.95em;
+    /* Slightly smaller */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 1.5;
+}
+
+.details pre:last-child {
+    margin-bottom: 0;
+}
+
+/* Ensure code within details pre wraps correctly */
+.details pre code {
+    display: block;
+    white-space: pre-wrap;
+    word-break: break-all;
+    color: var(--text-primary);
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    border-radius: 0;
+}
+
+/* Specific styling for error messages within details */
+.details pre.error-message code {
+    color: var(--danger-color);
+    /* Make error text stand out */
+    white-space: pre-wrap;
+    /* Ensure error trace wraps */
+}
+
+/* Styling for labels (strong tags) within details */
+.details strong {
+    display: block;
+    /* Make labels block level */
+    margin-top: 10px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.details strong:first-of-type {
+    margin-top: 0;
+    /* No top margin for the first label */
+}
+
+/* --- Help/Shortcuts Styles --- */
+.shortcuts-help {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: 20px;
+    z-index: 100;
+    width: 300px;
+    transform: translateY(calc(100% + 20px));
+    /* Start hidden below */
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+    visibility: hidden;
+    /* Hide when transformed */
+}
+
+.shortcuts-help.show {
+    transform: translateY(0);
+    visibility: visible;
+    /* Show when transformed */
+}
+
+.shortcuts-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--secondary-color);
+}
+
+.shortcut-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.shortcut-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 5px 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.shortcut-item span:first-child {
+    color: var(--text-primary);
+}
+
+/* Description */
+.shortcut-keys {
+    display: flex;
+    gap: 5px;
+}
+
+.key {
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.85rem;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    box-shadow: var(--shadow-sm);
+    color: var(--text-primary);
+}
+
+.help-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    z-index: 101;
+    /* Above shortcuts panel when closed */
+    border: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.help-btn:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.1);
+}
+
+/* --- Notification Style --- */
+.notification {
+    position: fixed;
+    bottom: 80px;
+    /* Above help button */
+    right: 20px;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-size: 0.9rem;
+    pointer-events: none;
+    /* Prevent interaction */
+}
+
+/* Styles applied by JS to show notification */
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Execution Example Styles --- */
+#examples-content {
+    padding-top: 10px;
+}
+
+.example-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    margin-bottom: 15px;
+    background-color: var(--light-bg);
+}
+
+.example-input-section,
+.example-output-section {
+    flex: 1;
+    min-width: 200px;
+    /* Ensure minimum width */
+}
+
+/* Labels for Input/Output/Explanation */
+.example-row>div>strong,
+.example-explanation>strong {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.95em;
+}
+
+/* Keep explanation label inline if needed */
+.example-explanation>strong {
+    display: inline;
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
+/* Styling for pre within examples */
+.example-row pre {
+    margin-top: 0;
+    /* Reset margin */
+    margin-bottom: 8px;
+    padding: 10px 12px;
+    background-color: var(--card-bg);
+    /* White background for code */
+    font-size: 0.95em;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+    /* Add scroll if needed */
+}
+
+.example-input-section pre:last-child,
+.example-output-section pre:last-child {
+    margin-bottom: 0;
+}
+
+/* Styling for code within example pre */
+.example-row pre code {
+    white-space: pre-wrap;
+    word-break: break-all;
+    color: var(--text-primary);
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    border-radius: 0;
+    /* Reset styles */
+    display: block;
+    /* Ensure block display */
+}
+
+.example-explanation {
+    flex-basis: 100%;
+    /* Take full width */
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .header {
+        padding: 8px 0;
+    }
+
+    .logo img {
+        height: 25px;
+    }
+
+    .container {
+        padding: 0 15px;
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
+
+    .card-header {
+        padding: 15px 20px;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.95rem;
+    }
+
+    .overall-summary {
+        font-size: 1rem;
+        padding: 12px 15px;
+    }
+
+    .test-header {
+        padding: 12px 15px;
+        flex-wrap: wrap;
+        /* Allow wrapping on small screens */
+        row-gap: 5px;
+    }
+
+    .test-title {
+        /* Ensure title doesn't push info too far */
+        flex-basis: 100%;
+        margin-bottom: 5px;
+    }
+
+    .test-info {
+        /* Take full width below title */
+        flex-basis: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .execution-time {
+        font-size: 0.8rem;
+    }
+
+    .shortcuts-help {
+        width: calc(100% - 30px);
+        /* Adjust width */
+        max-width: 400px;
+        bottom: 15px;
+        right: 15px;
+        padding: 15px;
+    }
+
+    .help-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+
+    .button-container {
+        justify-content: flex-start;
+        /* Align buttons left */
+    }
+
+    #switch-editor-btn {
+        min-width: 140px;
+    }
+
+    /* Adjust min-width */
+    .notification {
+        /* Make notification wider on small screens */
+        bottom: 70px;
+        /* Position above help button */
+        right: 15px;
+        left: 15px;
+        text-align: center;
+        transform: translateY(20px);
+        /* Keep initial transform */
+    }
+
+    /* Ensure text area is usable */
+    #user-code {
+        min-height: 250px;
+        height: 300px;
+    }
+}
+
+/* --- Modal Styles --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1500; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+    /* Add fade-in animation */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.show {
+    display: block; /* Make visible */
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 25px 30px;
+    border: 1px solid #ccc;
+    border-radius: var(--radius-md);
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Maximum width */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+    /* Add slide-down animation */
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+
+.close-modal-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer; /* Add cursor pointer */
+}
+
+.close-modal-btn:hover,
+.close-modal-btn:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+.modal-content p code {
+    background-color: #e0e0e0; /* Use a slightly darker background for code in modal */
+    color: var(--text-primary); /* Ensure readability */
+}
+
+.pincode-display-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #f8f8f8;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    margin-top: 10px; /* Add some space above */
+}
+
+.pincode-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    flex-grow: 1; /* Take available space */
+    letter-spacing: 1px;
+    overflow-wrap: break-word; /* Wrap if pincode is very long */
+}
+
+#copy-pincode-btn {
+    flex-shrink: 0; /* Prevent button from shrinking */
+    /* Use existing btn styles, maybe make slightly smaller */
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
