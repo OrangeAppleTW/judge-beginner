@@ -1,0 +1,122 @@
+{
+  "title": "檢查是否為迴文",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個函式，讀入一個字串 <code>input</code>，判斷它是否為迴文。</p><p>迴文是指一個字串從前面讀跟從後面讀都一樣（忽略大小寫和空格）。但在此題目中，我們<strong>僅需考慮原始字串</strong>，不需處理大小寫或空格。</p><p>例如：輸入字串 <code>racecar</code>，它反過來讀也是 <code>racecar</code>，所以是迴文。</p><p>輸入字串 <code>hello</code>，反過來是 <code>olleh</code>，不一樣，所以不是迴文。</p>",
+  "inputFormat": [
+    "輸入總共一行，內含一個字串 <code>input</code>。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 如果是迴文，請使用 <code>console.log()</code> 輸出 <code>是迴文</code>；如果不是，則輸出 <code>不是迴文</code>。",
+    "<strong>Python：</strong> 如果是迴文，請使用 <code>print()</code> 輸出 <code>是迴文</code>；如果不是，則輸出 <code>不是迴文</code>。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "racecar"
+      ],
+      "output": [
+        "是迴文"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "hello"
+      ],
+      "output": [
+        "不是迴文"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "level"
+      ],
+      "output": [
+        "是迴文"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "a"
+      ],
+      "output": [
+        "是迴文"
+      ],
+      "explanation": "單一字元也算是迴文。"
+    }
+  ],
+  "hints": [
+    "如何將輸入的字串反轉？可以參考「字串反轉」題目的方法。",
+    "如何比較原始字串和反轉後的字串是否完全相同？",
+    "你需要用到 <code>if...else</code> 條件判斷語句。"
+  ],
+  "defaultCode": "function main(input) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input) {\n  let reversed = '';\n  for (let i = input.length - 1; i >= 0; i--) {\n    reversed += input[i];\n  }\n  if (input === reversed) {\n    console.log('是迴文');\n  } else {\n    console.log('不是迴文');\n  }\n}",
+  "examplePythonCode": "def main(input):\n  reversed_string = input[::-1]\n  if input == reversed_string:\n    print('是迴文')\n  else:\n    print('不是迴文')\n",
+  "testCases": [
+    {
+      "input": [
+        "racecar"
+      ],
+      "expectedOutput": "是迴文"
+    },
+    {
+      "input": [
+        "hello"
+      ],
+      "expectedOutput": "不是迴文"
+    },
+    {
+      "input": [
+        "level"
+      ],
+      "expectedOutput": "是迴文"
+    },
+    {
+      "input": [
+        "a"
+      ],
+      "expectedOutput": "是迴文"
+    },
+    {
+      "input": [
+        "ab"
+      ],
+      "expectedOutput": "不是迴文"
+    },
+    {
+      "input": [
+        "aba"
+      ],
+      "expectedOutput": "是迴文"
+    },
+    {
+      "input": [
+        "Able was I ere I saw Elba"
+      ],
+      "expectedOutput": "不是迴文"
+    },
+    {
+      "input": [
+        "noon"
+      ],
+      "expectedOutput": "是迴文"
+    },
+    {
+      "input": [
+        "Python"
+      ],
+      "expectedOutput": "不是迴文"
+    },
+    {
+      "input": [
+        "12321"
+      ],
+      "expectedOutput": "是迴文"
+    }
+  ]
+}

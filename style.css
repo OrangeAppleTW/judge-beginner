@@ -119,7 +119,8 @@ body {
 }
 
 .card-body {
-    padding: 25px;
+    /* padding: 25px; */
+    padding: 50px 50px 50px 80px;
 }
 
 /* --- Collapsible/Accordion Styles --- */
@@ -993,15 +994,22 @@ li {
 
 /* --- Modal Styles --- */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1500; /* Sit on top */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1500;
+    /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black w/ opacity */
     /* Add fade-in animation */
     opacity: 0;
     visibility: hidden;
@@ -1009,20 +1017,24 @@ li {
 }
 
 .modal.show {
-    display: block; /* Make visible */
+    display: block;
+    /* Make visible */
     opacity: 1;
     visibility: visible;
 }
 
 .modal-content {
     background-color: #fff;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
+    /* 15% from the top and centered */
     padding: 25px 30px;
     border: 1px solid #ccc;
     border-radius: var(--radius-md);
-    width: 80%; /* Could be more or less, depending on screen size */
-    max-width: 500px; /* Maximum width */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+    max-width: 500px;
+    /* Maximum width */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     position: relative;
     /* Add slide-down animation */
     transform: translateY(-20px);
@@ -1042,7 +1054,8 @@ li {
     font-size: 28px;
     font-weight: bold;
     line-height: 1;
-    cursor: pointer; /* Add cursor pointer */
+    cursor: pointer;
+    /* Add cursor pointer */
 }
 
 .close-modal-btn:hover,
@@ -1057,14 +1070,18 @@ li {
     font-size: 1.5rem;
     color: var(--primary-color);
 }
+
 .modal-content p {
     margin-bottom: 20px;
     font-size: 0.95rem;
     color: var(--text-secondary);
 }
+
 .modal-content p code {
-    background-color: #e0e0e0; /* Use a slightly darker background for code in modal */
-    color: var(--text-primary); /* Ensure readability */
+    background-color: #e0e0e0;
+    /* Use a slightly darker background for code in modal */
+    color: var(--text-primary);
+    /* Ensure readability */
 }
 
 .pincode-display-container {
@@ -1075,7 +1092,8 @@ li {
     padding: 10px 15px;
     border-radius: 5px;
     border: 1px solid var(--border-color);
-    margin-top: 10px; /* Add some space above */
+    margin-top: 10px;
+    /* Add some space above */
 }
 
 .pincode-text {
@@ -1083,13 +1101,16 @@ li {
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--text-primary);
-    flex-grow: 1; /* Take available space */
+    flex-grow: 1;
+    /* Take available space */
     letter-spacing: 1px;
-    overflow-wrap: break-word; /* Wrap if pincode is very long */
+    overflow-wrap: break-word;
+    /* Wrap if pincode is very long */
 }
 
 #copy-pincode-btn {
-    flex-shrink: 0; /* Prevent button from shrinking */
+    flex-shrink: 0;
+    /* Prevent button from shrinking */
     /* Use existing btn styles, maybe make slightly smaller */
     padding: 8px 12px;
     font-size: 0.9rem;

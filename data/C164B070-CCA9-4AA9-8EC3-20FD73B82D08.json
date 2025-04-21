@@ -1,0 +1,73 @@
+{
+  "title": "計算三角形面積",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個函式，讀入兩個代表三角形底 <code>input1</code> 和高 <code>input2</code> 的數字，並計算及輸出該三角形的面積。</p><p>三角形面積的計算公式為：<code>(底 * 高) / 2</code>。</p>",
+  "inputFormat": [
+    "輸入總共有兩行。",
+    "第一行包含一個代表三角形底的數字 <code>input1</code>。",
+    "第二行包含一個代表三角形高的數字 <code>input2</code>。",
+    "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出計算出的面積。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出計算出的面積。",
+    "<strong>輸出結果請四捨五入至小數點後第二位。</strong>"
+  ],
+  "examples": [
+    {
+      "input": [
+        "10",
+        "5"
+      ],
+      "output": [
+        "25.00"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "7",
+        "3"
+      ],
+      "output": [
+        "10.50"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "4",
+        "6"
+      ],
+      "output": [
+        "12.00"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "你需要讀取兩個輸入值：底和高。",
+    "思考一下如何將代表數字的<strong>字串</strong>轉換成真正的數字進行計算？ (提示：<code>parseFloat()</code> 或 <code>Number()</code> for JS, <code>float()</code> for Python)",
+    "計算面積需要使用哪種數學運算子？ (提示：<code>*</code> 和 <code>/</code>)",
+    "注意題目要求輸出結果需四捨五入至小數點後兩位。",
+    "JavaScript 可以使用 <code>number.toFixed(2)</code> 來達成四捨五入並格式化為字串。",
+    "Python 可以使用 f-string 格式化 <code>f'{number:.2f}'</code> 來達成四捨五入並格式化為字串。"
+  ],
+  "defaultCode": "function main(input1, input2) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input1, input2):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input1, input2) {\n  const base = parseFloat(input1);\n  const height = parseFloat(input2);\n  const area = (base * height) / 2;\n  console.log(area.toFixed(2));\n}",
+  "examplePythonCode": "def main(input1, input2):\n  base = float(input1)\n  height = float(input2)\n  area = (base * height) / 2\n  print(f'{area:.2f}')\n",
+  "testCases": [
+    { "input": ["10", "5"], "expectedOutput": "25.00" },
+    { "input": ["7", "3"], "expectedOutput": "10.50" },
+    { "input": ["4", "6"], "expectedOutput": "12.00" },
+    { "input": ["1", "1"], "expectedOutput": "0.50" },
+    { "input": ["100", "100"], "expectedOutput": "5000.00" },
+    { "input": ["0", "10"], "expectedOutput": "0.00" },
+    { "input": ["10", "0"], "expectedOutput": "0.00" },
+    { "input": ["5.5", "2"], "expectedOutput": "5.50" },
+    { "input": ["3", "7.2"], "expectedOutput": "10.80" },
+    { "input": ["12.3", "4.5"], "expectedOutput": "27.68" }
+  ]
+}

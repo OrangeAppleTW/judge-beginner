@@ -47,5 +47,166 @@
         "description": "讀入一行以空格分隔的數字，計算並輸出它們的總和。",
         "order": 7,
         "pincode": 8888
+    },
+    {
+        "id": "D7E8F9A0-B1C2-D3E4-F5A6-B7C8D9E0F1A2",
+        "title": "計算字串長度",
+        "description": "讀入一個字串，並輸出它的長度。",
+        "order": 8,
+        "pincode": 9876
+    },
+    {
+        "id": "32517F38-06BC-4E32-9646-2239AD99686F",
+        "title": "溫度轉換（攝氏轉華氏）",
+        "description": "讀入一個攝氏溫度，並將其轉換為華氏溫度後輸出。",
+        "order": 9,
+        "pincode": 2468
+    },
+    {
+        "id": "B4A3C2D1-F6E5-4321-ABCD-1234567890AB",
+        "title": "計算平均數",
+        "description": "讀入一行以空格分隔的數字，計算並輸出它們的平均數。",
+        "order": 10,
+        "pincode": 7531
+    },
+    {
+        "id": "C164B070-CCA9-4AA9-8EC3-20FD73B82D08",
+        "title": "計算三角形面積",
+        "description": "讀入三角形的底和高，計算並輸出其面積。",
+        "order": 11,
+        "pincode": 5714
+    },
+    {
+        "id": "4881C2FE-2ABE-44CA-8B0D-D6350B945967",
+        "title": "計算階乘",
+        "description": "讀入一個非負整數，計算並輸出其階乘。",
+        "order": 12,
+        "pincode": 9612
+    },
+    {
+        "id": "0F047E9B-CC1D-43F1-B6AD-922405D9AB3C",
+        "title": "計算圓面積",
+        "description": "讀入圓的半徑，計算並輸出其面積（結果四捨五入至小數點後兩位）。",
+        "order": 13,
+        "pincode": 5681
+    },
+    {
+        "id": "879257B6-447C-4147-9779-F24264280D3D",
+        "title": "尋找最大值",
+        "description": "讀入一行以空格分隔的整數，找出並輸出其中最大的數字。",
+        "order": 14,
+        "pincode": 5175
+    },
+    {
+        "id": "AFD7E443-14BC-47C1-90B5-9F5820807C05",
+        "title": "重複字串",
+        "description": "讀入一個字串和一個非負整數 N，輸出該字串重複 N 次的結果。",
+        "order": 15,
+        "pincode": 5722
+    },
+    {
+        "id": "D55BDBE8-292F-422B-B09C-9976AFCD9B01",
+        "title": "檢查是否為迴文",
+        "description": "讀入一個字串，判斷它是否為迴文（正讀和反讀都一樣）。",
+        "order": 16,
+        "pincode": 3890
+    },
+    {
+        "id": "050F5FD1-9BFF-4908-B3B4-F006BE41EC0D",
+        "title": "計算字元出現次數",
+        "description": "讀入一個字串和一個字元，計算該字元在字串中出現的次數。",
+        "order": 17,
+        "pincode": 8108
+    },
+    {
+        "id": "890E0FB3-AC1B-40C9-9FE0-A5FFD895F7D1",
+        "title": "FizzBuzz",
+        "description": "讀入一個正整數，根據它是否為 3 或 5 的倍數輸出 Fizz、Buzz、FizzBuzz 或數字本身。",
+        "order": 18,
+        "pincode": 9303
+    },
+    {
+        "id": "AC57E9B1-4E8B-4AF9-B9DB-E8C1C9F448CA",
+        "title": "移除字串中的母音",
+        "description": "讀入一個字串，移除其中的所有母音（a, e, i, o, u，不分大小寫），並輸出結果。",
+        "order": 19,
+        "pincode": 8226
+    },
+    {
+        "id": "9E2AC6BC-3F76-4BF2-9299-45ACA7827481",
+        "title": "檢查子字串",
+        "description": "讀入兩個字串，判斷第二個字串是否為第一個字串的子字串。",
+        "order": 20,
+        "pincode": 1090
+    },
+    {
+        "id": "4D36CF0F-33D1-42D4-BE79-EBE39F83B0F1",
+        "title": "計算兩點間距離",
+        "description": "讀入兩個點的座標 (x1, y1) 和 (x2, y2)，計算它們之間的歐幾里得距離（結果四捨五入至小數點後兩位）。",
+        "order": 21,
+        "pincode": 5211
+    },
+    {
+        "id": "56CF7EA6-92E1-4640-BB05-992CB48C4F95",
+        "title": "判斷閏年",
+        "description": "讀入一個西元年份，判斷其是否為閏年並輸出結果。",
+        "order": 22,
+        "pincode": 6022
+    },
+    {
+        "id": "5DF252B-8144-43A8-BD51-8FBB263B8D7F",
+        "title": "尋找最小值",
+        "description": "讀入一行包含數個以空格分隔的整數，找出並輸出其中最小的數字。",
+        "order": 23,
+        "pincode": 2038
+    },
+    {
+        "id": "42892530-37A3-473D-82C0-389601055ACC",
+        "title": "計算次方",
+        "description": "讀入兩個整數：基數和非負指數，計算並輸出基數的指數次方。",
+        "order": 24,
+        "pincode": 5581
+    },
+    {
+        "id": "437C9E08-75E9-44FA-98E4-50B4E9431DC7",
+        "title": "計算絕對值",
+        "description": "讀入一個整數，計算並輸出它的絕對值。",
+        "order": 25,
+        "pincode": 8030
+    },
+    {
+        "id": "D11DB612-86FC-4E63-855A-6D325612C822",
+        "title": "計算最大公因數 (GCD)",
+        "description": "讀入兩個正整數，計算並輸出它們的最大公因數。",
+        "order": 26,
+        "pincode": 2285
+    },
+    {
+        "id": "3B56D7B3-0D10-4165-B560-0B086B377C10",
+        "title": "標題大小寫轉換",
+        "description": "讀入一個句子，將其轉換為標題大小寫格式。",
+        "order": 27,
+        "pincode": 5616
+    },
+    {
+        "id": "C3C0C286-56B8-479B-8B87-4269E715B4F6",
+        "title": "計算數字位數和",
+        "description": "讀入一個非負整數，計算其所有位數的數字總和。",
+        "order": 28,
+        "pincode": 8832
+    },
+    {
+        "id": "3BDFD61A-F4B1-4649-8C5F-67CF4E416A28",
+        "title": "檢查質數",
+        "description": "讀入一個正整數，判斷它是否為質數。",
+        "order": 29,
+        "pincode": 7989
+    },
+    {
+        "id": "083F72DB-0565-48FB-AB0C-00F7FE4AC470",
+        "title": "費氏數列",
+        "description": "讀入一個非負整數 N，計算費氏數列的第 N 個數字。",
+        "order": 30,
+        "pincode": 8969
     }
 ]

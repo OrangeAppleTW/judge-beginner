@@ -1,0 +1,66 @@
+{
+  "title": "尋找最小值",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個程式，讀入一行包含數個以空格分隔的整數 <code>input</code>，找出並輸出其中最小的數字。</p>",
+  "inputFormat": [
+    "輸入總共一行，包含數個以空格分隔的整數 <code>input</code>。",
+    "輸入的資料會以<strong>字串</strong>格式傳入，你需要先將其分割，然後將每個部分轉換成數字進行比較。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出找到的最小值。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出找到的最小值。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "10 5 8 2 7"
+      ],
+      "output": [
+        "2"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "-1 -5 -3"
+      ],
+      "output": [
+        "-5"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "100"
+      ],
+      "output": [
+        "100"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "如何將包含空格的輸入字串分割成多個數字字串？ (提示：JavaScript 的 <code>split(' ')</code>，Python 的 <code>split()</code>)",
+    "如何將數字字串轉換成真正的數字？ (提示：<code>parseInt()</code> 或 <code>Number()</code> for JS, <code>int()</code> for Python)",
+    "你需要一個變數來記錄目前找到的最小值。",
+    "初始化最小值時，可以將其設為第一個數字，或者一個非常大的數。",
+    "使用迴圈逐一比較每個數字與目前的最小值。"
+  ],
+  "defaultCode": "function main(input) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input) {\n  const numbers = input.split(' ').map(Number);\n  let minVal = numbers[0];\n  for (let i = 1; i < numbers.length; i++) {\n    if (numbers[i] < minVal) {\n      minVal = numbers[i];\n    }\n  }\n  console.log(minVal);\n}",
+  "examplePythonCode": "def main(input):\n  numbers = [int(x) for x in input.split()]\n  min_val = numbers[0]\n  for num in numbers[1:]:\n    if num < min_val:\n      min_val = num\n  print(min_val)\n",
+  "testCases": [
+    { "input": ["1 2 3 4 5"], "expectedOutput": "1" },
+    { "input": ["5 4 3 2 1"], "expectedOutput": "1" },
+    { "input": ["10 5 8 2 7"], "expectedOutput": "2" },
+    { "input": ["-1 -5 -3 -10 -2"], "expectedOutput": "-10" },
+    { "input": ["0 0 0 0"], "expectedOutput": "0" },
+    { "input": ["-5 0 5"], "expectedOutput": "-5" },
+    { "input": ["100"], "expectedOutput": "100" },
+    { "input": ["-100"], "expectedOutput": "-100" },
+    { "input": ["7 7 7 7"], "expectedOutput": "7" },
+    { "input": ["10 20 5 30 15"], "expectedOutput": "5" }
+  ]
+}

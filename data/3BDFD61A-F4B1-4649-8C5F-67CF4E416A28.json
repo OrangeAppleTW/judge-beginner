@@ -1,0 +1,45 @@
+{
+  "title": "檢查質數",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個程式，讀入一個正整數 <code>input</code>，判斷它是否為質數 (Prime Number)。</p><p>質數的定義是：一個大於 1 的自然數，除了 1 和它本身以外不再有其他正因數。</p><p>如果輸入的數字是質數，請輸出字串 <code>質數</code>；如果不是，請輸出字串 <code>非質數</code>。</p>",
+  "inputFormat": [
+    "輸入總共一行，包含一個正整數 <code>input</code>。",
+    "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出 <code>質數</code> 或 <code>非質數</code>。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出 <code>質數</code> 或 <code>非質數</code>。"
+  ],
+  "examples": [
+    { "input": ["7"], "output": ["質數"], "explanation": "" },
+    { "input": ["10"], "output": ["非質數"], "explanation": "" },
+    { "input": ["2"], "output": ["質數"], "explanation": "" },
+    { "input": ["1"], "output": ["非質數"], "explanation": "" }
+  ],
+  "hints": [
+    "你需要讀取一個輸入值並將其轉換為數字。",
+    "根據質數定義，數字 1 不是質數，需要特別處理。",
+    "數字 2 是最小的質數，也是唯一的偶數質數，可以特別處理。",
+    "對於大於 2 的數字 <code>n</code>，你可以嘗試從 2 開始，一直檢查到 <code>n-1</code>，看看是否有任何數字能整除 <code>n</code>。",
+    "使用迴圈 (例如 <code>for</code> 或 <code>while</code>) 和餘數運算子 (<code>%</code>) 來檢查整除。",
+    "如果在迴圈中找到任何一個能整除 <code>n</code> 的數，那麼 <code>n</code> 就不是質數，可以提前結束判斷。",
+    "如果迴圈跑完都沒有找到能整除 <code>n</code> 的數，那麼 <code>n</code> 就是質數。"
+  ],
+  "defaultCode": "function main(input) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input) {\n  const num = parseInt(input);\n\n  if (num <= 1) {\n    console.log('非質數');\n    return;\n  }\n  if (num === 2) {\n    console.log('質數');\n    return;\n  }\n  if (num % 2 === 0) {\n      console.log('非質數');\n      return;\n  }\n\n  let isPrime = true;\n  for (let i = 3; i < num; i += 2) {\n    if (num % i === 0) {\n      isPrime = false;\n      break;\n    }\n  }\n\n  if (isPrime) {\n    console.log('質數');\n  } else {\n    console.log('非質數');\n  }\n}",
+  "examplePythonCode": "import math\n\ndef main(input):\n  num = int(input)\n\n  if num <= 1:\n    print('非質數')\n    return\n  if num == 2:\n    print('質數')\n    return\n  if num % 2 == 0:\n      print('非質數')\n      return\n\n  is_prime = True\n  for i in range(3, num, 2):\n    if num % i == 0:\n      is_prime = False\n      break\n\n  if is_prime:\n    print('質數')\n  else:\n    print('非質數')\n",
+  "testCases": [
+    { "input": ["2"], "expectedOutput": "質數" },
+    { "input": ["3"], "expectedOutput": "質數" },
+    { "input": ["4"], "expectedOutput": "非質數" },
+    { "input": ["1"], "expectedOutput": "非質數" },
+    { "input": ["17"], "expectedOutput": "質數" },
+    { "input": ["25"], "expectedOutput": "非質數" },
+    { "input": ["97"], "expectedOutput": "質數" },
+    { "input": ["100"], "expectedOutput": "非質數" },
+    { "input": ["53"], "expectedOutput": "質數" },
+    { "input": ["69"], "expectedOutput": "非質數" }
+  ]
+}

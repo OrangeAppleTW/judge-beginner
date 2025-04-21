@@ -2,7 +2,7 @@
     "title": "兩數相加",
     "functionName": "main",
     "pythonFunctionName": "main",
-    "descriptionContentHTML": "<p>請寫一個程式，讀入兩個輸入，然後輸出這兩個輸入的和。</p><p>這是練習處理數字輸入和基本算術運算的好機會。</p>",
+    "descriptionContentHTML": "<p>請寫一個程式，讀入兩個輸入，然後輸出這兩個輸入的和。</p>",
     "inputFormat": [
         "輸入共有兩行。",
         "第一行是輸入的第一個整數 <code>input1</code>。",

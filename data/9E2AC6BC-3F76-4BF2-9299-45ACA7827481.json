@@ -1,0 +1,149 @@
+{
+  "title": "檢查子字串",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個函式，讀入兩個字串 <code>input1</code> 和 <code>input2</code>，判斷 <code>input2</code> 是否為 <code>input1</code> 的子字串。</p><p>子字串是指在原始字串中連續出現的一段字元。</p><p>例如：輸入字串 <code>Hello World</code> 和 <code>World</code>，因為 <code>World</code> 出現在 <code>Hello World</code> 中，所以是子字串。</p><p>輸入字串 <code>Programming</code> 和 <code>gram</code>，因為 <code>gram</code> 出現在 <code>Programming</code> 中，所以是子字串。</p><p>輸入字串 <code>Test</code> 和 <code>Set</code>，因為 <code>Set</code> 沒有連續出現在 <code>Test</code> 中，所以不是子字串。</p>",
+  "inputFormat": [
+    "輸入共有兩行。",
+    "第一行是原始字串 <code>input1</code>。",
+    "第二行是要檢查的子字串 <code>input2</code>。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 如果 <code>input2</code> 是 <code>input1</code> 的子字串，請使用 <code>console.log()</code> 輸出 <code>是子字串</code>；否則輸出 <code>不是子字串</code>。",
+    "<strong>Python：</strong> 如果 <code>input2</code> 是 <code>input1</code> 的子字串，請使用 <code>print()</code> 輸出 <code>是子字串</code>；否則輸出 <code>不是子字串</code>。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "Hello World",
+        "World"
+      ],
+      "output": [
+        "是子字串"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "Programming",
+        "gram"
+      ],
+      "output": [
+        "是子字串"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "Test",
+        "Set"
+      ],
+      "output": [
+        "不是子字串"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "abc",
+        "abc"
+      ],
+      "output": [
+        "是子字串"
+      ],
+      "explanation": "字串本身也是自己的子字串。"
+    },
+    {
+      "input": [
+        "banana",
+        "nana"
+      ],
+      "output": [
+        "是子字串"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "你需要讀取兩個輸入字串。",
+    "大多數程式語言都有內建的方法或運算子可以檢查一個字串是否包含另一個字串。",
+    "JavaScript: 可以使用 <code>string1.includes(string2)</code> 或 <code>string1.indexOf(string2) !== -1</code>。",
+    "Python: 可以使用 <code>in</code> 運算子，例如 <code>string2 in string1</code>。"
+  ],
+  "defaultCode": "function main(input1, input2) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input1, input2):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input1, input2) {\n  if (input1.includes(input2)) {\n    console.log('是子字串');\n  } else {\n    console.log('不是子字串');\n  }\n}",
+  "examplePythonCode": "def main(input1, input2):\n  if input2 in input1:\n    print('是子字串')\n  else:\n    print('不是子字串')\n",
+  "testCases": [
+    {
+      "input": [
+        "Hello World",
+        "World"
+      ],
+      "expectedOutput": "是子字串"
+    },
+    {
+      "input": [
+        "Programming",
+        "gram"
+      ],
+      "expectedOutput": "是子字串"
+    },
+    {
+      "input": [
+        "Test",
+        "Set"
+      ],
+      "expectedOutput": "不是子字串"
+    },
+    {
+      "input": [
+        "abc",
+        "abc"
+      ],
+      "expectedOutput": "是子字串"
+    },
+    {
+      "input": [
+        "banana",
+        "nana"
+      ],
+      "expectedOutput": "是子字串"
+    },
+    {
+      "input": [
+        "apple",
+        "ple"
+      ],
+      "expectedOutput": "是子字串"
+    },
+    {
+      "input": [
+        "orange",
+        "ran"
+      ],
+      "expectedOutput": "是子字串"
+    },
+    {
+      "input": [
+        "strawberry",
+        "berry"
+      ],
+      "expectedOutput": "是子字串"
+    },
+    {
+      "input": [
+        "pineapple",
+        "applepie"
+      ],
+      "expectedOutput": "不是子字串"
+    },
+    {
+      "input": [
+        "computer",
+        "put"
+      ],
+      "expectedOutput": "是子字串"
+    }
+  ]
+}

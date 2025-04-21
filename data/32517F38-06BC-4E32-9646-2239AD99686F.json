@@ -1,0 +1,96 @@
+{
+    "title": "溫度轉換（攝氏轉華氏）",
+    "functionName": "main",
+    "pythonFunctionName": "main",
+    "descriptionContentHTML": "<p>請寫一個程式，讀入一個攝氏溫度 <code>input</code>，並將其轉換為華氏溫度後輸出。</p><p>轉換公式為：華氏溫度 = (攝氏溫度 × 9/5) + 32。</p>",
+    "inputFormat": [
+        "輸入總共一行，包含一個數字 <code>input</code>，代表攝氏溫度。",
+        "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字 (可能包含小數)。"
+    ],
+    "outputFormat": [
+        "<strong>JavaScript：</strong> 使用 <code>console.log()</code> 輸出計算後的華氏溫度。<strong>輸出結果請四捨五入至小數點後第二位。</strong>",
+        "<strong>Python：</strong> 使用 <code>print()</code> 輸出計算後的華氏溫度。<strong>輸出結果請四捨五入至小數點後第二位。</strong>"
+    ],
+    "examples": [
+        {
+            "input": [
+                "0"
+            ],
+            "output": [
+                "32.00"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "100"
+            ],
+            "output": [
+                "212.00"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "37.5"
+            ],
+            "output": [
+                "99.50"
+            ],
+            "explanation": ""
+        }
+    ],
+    "hints": [
+        "華氏溫度 = (攝氏溫度 × 9/5) + 32",
+        "JavaScript： 使用 <code>parseFloat()</code> 將字串轉換為可能帶有小數的數字。",
+        "Python： 使用 <code>float()</code> 將字串轉換為可能帶有小數的數字。",
+        "JavaScript： 使用 <code>number.toFixed(2)</code> 可以將數字四捨五入到小數點後兩位，並回傳字串。",
+        "Python： 使用 <code>round(number, 2)</code> 可以將數字四捨五入到小數點後兩位，或使用 f-string 格式化 <code>f'{number:.2f}'</code>。"
+    ],
+    "defaultCode": "function main(input) {\n  // 請在此函數內完成你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+    "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+    "exampleCode": "function main(input) {\n  const celsius = parseFloat(input);\n  const fahrenheit = (celsius * 9/5) + 32;\n  console.log(fahrenheit.toFixed(2));\n}",
+    "examplePythonCode": "def main(input):\n  celsius = float(input)\n  fahrenheit = (celsius * 9/5) + 32\n  print(f'{fahrenheit:.2f}')\n",
+    "testCases": [
+        {
+            "input": ["0"],
+            "expectedOutput": "32.00"
+        },
+        {
+            "input": ["100"],
+            "expectedOutput": "212.00"
+        },
+        {
+            "input": ["-40"],
+            "expectedOutput": "-40.00"
+        },
+        {
+            "input": ["37"],
+            "expectedOutput": "98.60"
+        },
+        {
+            "input": ["25.5"],
+            "expectedOutput": "77.90"
+        },
+        {
+            "input": ["-10"],
+            "expectedOutput": "14.00"
+        },
+        {
+            "input": ["15"],
+            "expectedOutput": "59.00"
+        },
+        {
+            "input": ["-17.7778"],
+            "expectedOutput": "-0.00"
+        },
+        {
+            "input": ["200"],
+            "expectedOutput": "392.00"
+        },
+        {
+            "input": ["-273.15"],
+            "expectedOutput": "-459.67"
+        }
+    ]
+}

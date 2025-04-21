@@ -1,0 +1,112 @@
+{
+    "title": "計算字串長度",
+    "functionName": "main",
+    "pythonFunctionName": "main",
+    "descriptionContentHTML": "<p>請寫一個程式，讀入一個字串 <code>input</code>，並計算且輸出該字串的長度。</p>",
+    "inputFormat": [
+        "輸入總共一行，內含一個字串 <code>input</code>。"
+    ],
+    "outputFormat": [
+        "<strong>JavaScript：</strong> 使用 <code>console.log()</code> 輸出字串的長度。",
+        "<strong>Python：</strong> 使用 <code>print()</code> 輸出字串的長度。"
+    ],
+    "examples": [
+        {
+            "input": [
+                "hello"
+            ],
+            "output": [
+                "5"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "programming"
+            ],
+            "output": [
+                "11"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                ""
+            ],
+            "output": [
+                "0"
+            ],
+            "explanation": ""
+        }
+    ],
+    "hints": [
+        "JavaScript：思考如何取得字串的 <code>length</code> 屬性。",
+        "Python：思考如何使用 <code>len()</code> 函式。"
+    ],
+    "defaultCode": "function main(input) {\n  // 請在此函數內完成你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+    "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+    "exampleCode": "function main(input) {\n  // 從陣列 input 中取出第一個元素 input[0]\n  console.log(input.length);\n}",
+    "examplePythonCode": "def main(input):\n  # 從列表 input 中取出第一個元素 input[0]\n  print(len(input))\n",
+    "testCases": [
+        {
+            "input": [
+                ""
+            ],
+            "expectedOutput": "0"
+        },
+        {
+            "input": [
+                "a"
+            ],
+            "expectedOutput": "1"
+        },
+        {
+            "input": [
+                "abc"
+            ],
+            "expectedOutput": "3"
+        },
+        {
+            "input": [
+                "hello world"
+            ],
+            "expectedOutput": "11"
+        },
+        {
+            "input": [
+                "   "
+            ],
+            "expectedOutput": "3"
+        },
+        {
+            "input": [
+                "12345"
+            ],
+            "expectedOutput": "5"
+        },
+        {
+            "input": [
+                "!@#$%^"
+            ],
+            "expectedOutput": "6"
+        },
+        {
+            "input": [
+                "你好嗎"
+            ],
+            "expectedOutput": "3"
+        },
+        {
+            "input": [
+                "long string with many characters"
+            ],
+            "expectedOutput": "32"
+        },
+        {
+            "input": [
+                "mix 123 中文 !@#"
+            ],
+            "expectedOutput": "14"
+        }
+    ]
+}

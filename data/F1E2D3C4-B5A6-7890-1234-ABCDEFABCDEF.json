@@ -2,7 +2,7 @@
     "title": "比較大小",
     "functionName": "main",
     "pythonFunctionName": "main",
-    "descriptionContentHTML": "<p>請寫一個程式，讀入兩個整數，並比較它們的大小。</p><ul><li>如果第一個數字大於第二個數字，請輸出字串 <code>第一個數比較大</code>。</li><li>如果第二個數字大於第一個數字，請輸出字串 <code>第二個數比較大</code>。</li><li>如果兩個數字相等，請輸出字串 <code>兩個數相等</code>。</li></ul><p>這是一個練習條件判斷的好機會！</p>",
+    "descriptionContentHTML": "<p>請寫一個程式，讀入兩個整數，並比較它們的大小。</p><ul><li>如果第一個數字大於第二個數字，請輸出字串 <code>第一個數比較大</code>。</li><li>如果第二個數字大於第一個數字，請輸出字串 <code>第二個數比較大</code>。</li><li>如果兩個數字相等，請輸出字串 <code>兩個數相等</code>。</li></ul>",
     "inputFormat": [
         "輸入共有兩行。",
         "第一行是輸入的第一個整數 <code>input1</code>。",

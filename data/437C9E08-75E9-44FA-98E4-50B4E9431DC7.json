@@ -1,0 +1,65 @@
+{
+  "title": "計算絕對值",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個程式，讀入一個整數 <code>input</code>，計算並輸出它的絕對值。</p><p>絕對值是指一個數在數線上與 0 的距離，所以恆為非負數。</p>",
+  "inputFormat": [
+    "輸入總共一行，包含一個整數 <code>input</code>。",
+    "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出計算出的絕對值。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出計算出的絕對值。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "5"
+      ],
+      "output": [
+        "5"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "-10"
+      ],
+      "output": [
+        "10"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "0"
+      ],
+      "output": [
+        "0"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "你需要讀取一個輸入值。",
+    "記得將輸入的<strong>字串</strong>轉換成數字。",
+    "可以使用條件判斷 (<code>if/else</code>) 來檢查數字是否為負數，如果是，則將其乘以 <code>-1</code>。",
+    "或者，可以使用語言內建的絕對值函式 (例如 JavaScript 的 <code>Math.abs()</code>，Python 的 <code>abs()</code>)。"
+  ],
+  "defaultCode": "function main(input) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input) {\n  const num = parseInt(input);\n  console.log(Math.abs(num));\n}",
+  "examplePythonCode": "def main(input):\n  num = int(input)\n  print(abs(num))\n",
+  "testCases": [
+    { "input": ["5"], "expectedOutput": "5" },
+    { "input": ["-10"], "expectedOutput": "10" },
+    { "input": ["0"], "expectedOutput": "0" },
+    { "input": ["-1"], "expectedOutput": "1" },
+    { "input": ["1"], "expectedOutput": "1" },
+    { "input": ["12345"], "expectedOutput": "12345" },
+    { "input": ["-9876"], "expectedOutput": "9876" },
+    { "input": ["-0"], "expectedOutput": "0" },
+    { "input": ["999999"], "expectedOutput": "999999" },
+    { "input": ["-1000000"], "expectedOutput": "1000000" }
+  ]
+}

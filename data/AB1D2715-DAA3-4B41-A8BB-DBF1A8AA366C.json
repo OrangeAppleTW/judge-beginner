@@ -2,7 +2,7 @@
     "title": "計算數字總和",
     "functionName": "main",
     "pythonFunctionName": "main",
-    "descriptionContentHTML": "<p>請寫一個程式，讀入一行以空格分隔的數字字串，計算這些數字的總和並輸出結果。</p><p>這個練習可以幫助你熟悉處理字串分割、迴圈以及資料型態轉換。</p>",
+    "descriptionContentHTML": "<p>請寫一個程式，讀入一行以空格分隔的數字字串，計算這些數字的總和並輸出結果。</p>",
     "inputFormat": [
         "輸入總共一行，包含一個或多個以<strong>空格</strong>分隔的整數字串 <code>input</code>。",
         "輸入的資料會以<strong>字串</strong>格式傳入，你需要先將其分割成個別數字字串，然後再轉換成數字進行加總。"

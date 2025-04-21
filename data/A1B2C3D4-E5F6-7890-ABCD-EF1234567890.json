@@ -2,7 +2,7 @@
   "title": "計算矩形面積",
   "functionName": "main",
   "pythonFunctionName": "main",
-  "descriptionContentHTML": "<p>請寫一個函式，讀入兩個代表矩形長度和寬度的數字 <code>input1</code> 和 <code>input2</code>，並計算及輸出該矩形的面積。</p><p>這個練習可以幫助你熟悉處理多個輸入以及基本的數學運算。</p>",
+  "descriptionContentHTML": "<p>請寫一個函式，讀入兩個代表矩形長度和寬度的數字 <code>input1</code> 和 <code>input2</code>，並計算及輸出該矩形的面積。</p></p>",
   "inputFormat": [
     "輸入總共有兩行。",
     "第一行包含一個代表矩形長度的數字 <code>input1</code>。",

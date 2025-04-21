@@ -1,0 +1,76 @@
+{
+  "title": "費氏數列",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個程式，讀入一個非負整數 <code>input</code> (代表 N)，計算並輸出費氏數列 (Fibonacci sequence) 的第 N 個數字。</p><p>費氏數列的定義如下：</p><ul><li>第 0 項 F(0) = 0</li><li>第 1 項 F(1) = 1</li><li>對於 N > 1，第 N 項 F(N) = F(N-1) + F(N-2)</li></ul><p>例如：數列的前幾項為 0, 1, 1, 2, 3, 5, 8, 13, ...</p>",
+  "inputFormat": [
+    "輸入總共一行，包含一個非負整數 <code>input</code> (N)。",
+    "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出費氏數列的第 N 個數字。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出費氏數列的第 N 個數字。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "0"
+      ],
+      "output": [
+        "0"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "1"
+      ],
+      "output": [
+        "1"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "2"
+      ],
+      "output": [
+        "1"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "7"
+      ],
+      "output": [
+        "13"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "你需要讀取一個輸入值 N 並將其轉換為數字。",
+    "注意處理基本情況：N=0 和 N=1。",
+    "對於 N > 1，你可以使用迴圈來計算。",
+    "你需要兩個變數來儲存前兩個費氏數 (例如 <code>a</code> 和 <code>b</code>)，初始值分別為 0 和 1。",
+    "在迴圈中，計算下一個費氏數 (<code>next = a + b</code>)，然後更新 <code>a</code> 和 <code>b</code> 的值 (<code>a = b</code>, <code>b = next</code>)。",
+    "迴圈需要執行 N-1 次 (如果從 N=2 開始計算) 或 N 次 (如果從 N=0 開始處理)。"
+  ],
+  "defaultCode": "function main(input) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input) {\n  const n = parseInt(input);\n\n  if (n === 0) {\n    console.log(0);\n    return;\n  }\n  if (n === 1) {\n    console.log(1);\n    return;\n  }\n\n  let a = 0;\n  let b = 1;\n  for (let i = 2; i <= n; i++) {\n    let temp = b;\n    b = a + b;\n    a = temp;\n  }\n  console.log(b);\n}",
+  "examplePythonCode": "def main(input):\n  n = int(input)\n\n  if n == 0:\n    print(0)\n    return\n  if n == 1:\n    print(1)\n    return\n\n  a, b = 0, 1\n  for _ in range(2, n + 1):\n    a, b = b, a + b\n  print(b)\n",
+  "testCases": [
+    { "input": ["0"], "expectedOutput": "0" },
+    { "input": ["1"], "expectedOutput": "1" },
+    { "input": ["2"], "expectedOutput": "1" },
+    { "input": ["3"], "expectedOutput": "2" },
+    { "input": ["4"], "expectedOutput": "3" },
+    { "input": ["5"], "expectedOutput": "5" },
+    { "input": ["10"], "expectedOutput": "55" },
+    { "input": ["15"], "expectedOutput": "610" },
+    { "input": ["20"], "expectedOutput": "6765" },
+    { "input": ["8"], "expectedOutput": "21" }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "title": "計算次方",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個程式，讀入兩個整數：基數 <code>input1</code> 和非負指數 <code>input2</code>，計算並輸出 <code>input1</code> 的 <code>input2</code> 次方。</p>",
+  "inputFormat": [
+    "輸入共有兩行。",
+    "第一行是基數 <code>input1</code> (整數)。",
+    "第二行是指數 <code>input2</code> (非負整數)。",
+    "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出計算結果。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出計算結果。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "2",
+        "3"
+      ],
+      "output": [
+        "8"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "5",
+        "0"
+      ],
+      "output": [
+        "1"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "-3",
+        "2"
+      ],
+      "output": [
+        "9"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "你需要讀取兩個輸入值：基數和指數。",
+    "記得將輸入的<strong>字串</strong>轉換成數字。",
+    "可以使用語言內建的乘冪運算子或函式 (例如 JavaScript 的 <code>**</code> 或 <code>Math.pow()</code>，Python 的 <code>**</code>)。",
+    "或者，你可以使用迴圈來實現乘冪計算，特別注意指數為 0 的情況。"
+  ],
+  "defaultCode": "function main(input1, input2) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input1, input2):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input1, input2) {\n  const base = parseInt(input1);\n  const exponent = parseInt(input2);\n  console.log(Math.pow(base, exponent));\n}",
+  "examplePythonCode": "def main(input1, input2):\n  base = int(input1)\n  exponent = int(input2)\n  print(base ** exponent)\n",
+  "testCases": [
+    { "input": ["2", "3"], "expectedOutput": "8" },
+    { "input": ["5", "0"], "expectedOutput": "1" },
+    { "input": ["-3", "2"], "expectedOutput": "9" },
+    { "input": ["10", "1"], "expectedOutput": "10" },
+    { "input": ["1", "100"], "expectedOutput": "1" },
+    { "input": ["-2", "3"], "expectedOutput": "-8" },
+    { "input": ["7", "2"], "expectedOutput": "49" },
+    { "input": ["0", "5"], "expectedOutput": "0" },
+    { "input": ["-1", "4"], "expectedOutput": "1" },
+    { "input": ["3", "4"], "expectedOutput": "81" }
+  ]
+}

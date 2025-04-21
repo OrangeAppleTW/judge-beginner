@@ -1,0 +1,139 @@
+{
+  "title": "重複字串",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個函式，讀入一個字串 <code>input1</code> 和一個非負整數 <code>input2</code>，然後輸出將 <code>input1</code> 重複 <code>input2</code> 次的結果。</p><p>例如：輸入字串 <code>abc</code> 和數字 <code>3</code>，應輸出 <code>abcabcabc</code>。</p>",
+  "inputFormat": [
+    "輸入共有兩行。",
+    "第一行是輸入的字串 <code>input1</code>。",
+    "第二行是輸入的非負整數 <code>input2</code>，代表重複的次數。",
+    "第二行的輸入資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出重複後的字串。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出重複後的字串。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "abc",
+        "3"
+      ],
+      "output": [
+        "abcabcabc"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "Hi",
+        "2"
+      ],
+      "output": [
+        "HiHi"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "Test",
+        "0"
+      ],
+      "output": [
+        ""
+      ],
+      "explanation": "重複 0 次結果為空字串。"
+    },
+    {
+      "input": [
+        "X",
+        "1"
+      ],
+      "output": [
+        "X"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "你需要讀取兩個輸入：一個字串和一個代表次數的數字字串。",
+    "記得將代表次數的<strong>字串</strong>轉換成整數。",
+    "如何讓一個字串重複指定的次數？ (提示：JavaScript: <code>string.repeat(n)</code>, Python: <code>string * n</code>)"
+  ],
+  "defaultCode": "function main(input1, input2) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input1, input2):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input1, input2) {\n  const str = input1;\n  const count = parseInt(input2);\n  console.log(str.repeat(count));\n}",
+  "examplePythonCode": "def main(input1, input2):\n  str_to_repeat = input1\n  count = int(input2)\n  print(str_to_repeat * count)\n",
+  "testCases": [
+    {
+      "input": [
+        "a",
+        "5"
+      ],
+      "expectedOutput": "aaaaa"
+    },
+    {
+      "input": [
+        "Hello ",
+        "2"
+      ],
+      "expectedOutput": "Hello Hello "
+    },
+    {
+      "input": [
+        "xyz",
+        "1"
+      ],
+      "expectedOutput": "xyz"
+    },
+    {
+      "input": [
+        "test",
+        "0"
+      ],
+      "expectedOutput": ""
+    },
+    {
+      "input": [
+        "",
+        "10"
+      ],
+      "expectedOutput": ""
+    },
+    {
+      "input": [
+        "123",
+        "3"
+      ],
+      "expectedOutput": "123123123"
+    },
+    {
+      "input": [
+        "Go",
+        "4"
+      ],
+      "expectedOutput": "GoGoGoGo"
+    },
+    {
+      "input": [
+        " ",
+        "5"
+      ],
+      "expectedOutput": "     "
+    },
+    {
+      "input": [
+        "*-*",
+        "2"
+      ],
+      "expectedOutput": "*-**-*"
+    },
+    {
+      "input": [
+        "Repeat",
+        "1"
+      ],
+      "expectedOutput": "Repeat"
+    }
+  ]
+}

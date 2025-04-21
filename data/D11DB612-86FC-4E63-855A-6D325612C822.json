@@ -1,0 +1,72 @@
+{
+  "title": "計算最大公因數 (GCD)",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個程式，讀入兩個正整數 <code>input1</code> 和 <code>input2</code>，計算並輸出它們的最大公因數 (Greatest Common Divisor, GCD)。</p><p>最大公因數是指兩個或多個整數中，能夠同時整除它們的最大正整數。</p>",
+  "inputFormat": [
+    "輸入共有兩行。",
+    "第一行是第一個正整數 <code>input1</code>。",
+    "第二行是第二個正整數 <code>input2</code>。",
+    "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出計算出的最大公因數。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出計算出的最大公因數。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "12",
+        "18"
+      ],
+      "output": [
+        "6"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "25",
+        "15"
+      ],
+      "output": [
+        "5"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "7",
+        "13"
+      ],
+      "output": [
+        "1"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "你需要讀取兩個輸入值。",
+    "記得將輸入的<strong>字串</strong>轉換成數字。",
+    "可以使用歐幾里得演算法 (Euclidean algorithm) 來尋找最大公因數。",
+    "歐幾里得演算法的基本思想是：兩個數的最大公因數等於其中較小的數和兩數相除餘數的最大公因數。",
+    "重複這個過程，直到餘數為 0，此時另一個數（除數）就是最大公因數。",
+    "你需要使用迴圈 (例如 <code>while</code>) 和餘數運算子 (<code>%</code>)。"
+  ],
+  "defaultCode": "function main(input1, input2) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input1, input2):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input1, input2) {\n  let a = parseInt(input1);\n  let b = parseInt(input2);\n  while (b !== 0) {\n    let temp = b;\n    b = a % b;\n    a = temp;\n  }\n  console.log(a);\n}",
+  "examplePythonCode": "def main(input1, input2):\n  a = int(input1)\n  b = int(input2)\n  while b:\n    a, b = b, a % b\n  print(a)\n",
+  "testCases": [
+    { "input": ["12", "18"], "expectedOutput": "6" },
+    { "input": ["25", "15"], "expectedOutput": "5" },
+    { "input": ["7", "13"], "expectedOutput": "1" },
+    { "input": ["48", "60"], "expectedOutput": "12" },
+    { "input": ["100", "75"], "expectedOutput": "25" },
+    { "input": ["1", "5"], "expectedOutput": "1" },
+    { "input": ["10", "10"], "expectedOutput": "10" },
+    { "input": ["99", "55"], "expectedOutput": "11" },
+    { "input": ["36", "24"], "expectedOutput": "12" },
+    { "input": ["101", "103"], "expectedOutput": "1" }
+  ]
+}

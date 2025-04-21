@@ -1,0 +1,117 @@
+{
+    "title": "計算圓面積",
+    "functionName": "main",
+    "pythonFunctionName": "main",
+    "descriptionContentHTML": "<p>請寫一個函式，讀入一個代表圓半徑的數字 <code>input</code>，計算並輸出該圓的面積。</p><p>圓周率 (π) 請使用程式語言內建的常數，例如 JavaScript 的 <code>Math.PI</code> 或 Python 的 <code>math.pi</code>。</p><p>圓面積的計算公式為：面積 = π × 半徑²。</p>",
+    "inputFormat": [
+        "輸入總共一行，包含一個代表圓半徑的非負數字 <code>input</code>。",
+        "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+    ],
+    "outputFormat": [
+        "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出計算出的面積。",
+        "<strong>Python：</strong> 請使用 <code>print()</code> 輸出計算出的面積。",
+        "<strong>輸出結果請四捨五入至小數點後第二位。</strong>"
+    ],
+    "examples": [
+        {
+            "input": [
+                "10"
+            ],
+            "output": [
+                "314.16"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "1"
+            ],
+            "output": [
+                "3.14"
+            ],
+            "explanation": ""
+        },
+        {
+            "input": [
+                "2.5"
+            ],
+            "output": [
+                "19.63"
+            ],
+            "explanation": ""
+        }
+    ],
+    "hints": [
+        "你需要讀取一個輸入值：半徑。",
+        "記得將輸入的<strong>字串</strong>轉換成數字才能進行計算。",
+        "如何計算一個數字的平方？ (提示：<code>**</code> 運算子或 <code>Math.pow()</code>)",
+        "如何取得圓周率 π？ (提示：JavaScript: <code>Math.PI</code>, Python: <code>import math; math.pi</code>)",
+        "如何將計算結果四捨五入到小數點後兩位？ (提示：JavaScript: <code>number.toFixed(2)</code>, Python: <code>round(number, 2)</code> 或 f-string <code>f'{number:.2f}'</code>)"
+    ],
+    "defaultCode": "function main(input) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+    "defaultPythonCode": "import math\n\ndef main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+    "exampleCode": "function main(input) {\n  const radius = parseFloat(input);\n  const area = Math.PI * radius * radius;\n  console.log(area.toFixed(2));\n}",
+    "examplePythonCode": "import math\n\ndef main(input):\n  radius = float(input)\n  area = math.pi * (radius ** 2)\n  print(f'{area:.2f}')\n",
+    "testCases": [
+        {
+            "input": [
+                "10"
+            ],
+            "expectedOutput": "314.16"
+        },
+        {
+            "input": [
+                "1"
+            ],
+            "expectedOutput": "3.14"
+        },
+        {
+            "input": [
+                "0"
+            ],
+            "expectedOutput": "0.00"
+        },
+        {
+            "input": [
+                "2.5"
+            ],
+            "expectedOutput": "19.63"
+        },
+        {
+            "input": [
+                "5"
+            ],
+            "expectedOutput": "78.54"
+        },
+        {
+            "input": [
+                "100"
+            ],
+            "expectedOutput": "31415.93"
+        },
+        {
+            "input": [
+                "0.1"
+            ],
+            "expectedOutput": "0.03"
+        },
+        {
+            "input": [
+                "7.7"
+            ],
+            "expectedOutput": "186.27"
+        },
+        {
+            "input": [
+                "123.45"
+            ],
+            "expectedOutput": "47877.57"
+        },
+        {
+            "input": [
+                "3"
+            ],
+            "expectedOutput": "28.27"
+        }
+    ]
+}

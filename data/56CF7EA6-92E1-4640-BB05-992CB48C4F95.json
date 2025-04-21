@@ -1,0 +1,74 @@
+{
+  "title": "判斷閏年",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個程式，讀入一個西元年份 <code>input</code>，判斷該年份是否為閏年。</p><p>閏年的定義如下：</p><ul><li>年份可以被 4 整除，但不能被 100 整除。</li><li>或者，年份可以被 400 整除。</li></ul><p>如果該年份是閏年，請輸出字串 <code>閏年</code>；如果不是，請輸出字串 <code>平年</code>。</p>",
+  "inputFormat": [
+    "輸入總共一行，包含一個正整數 <code>input</code>，代表西元年份。",
+    "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出 <code>閏年</code> 或 <code>平年</code>。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出 <code>閏年</code> 或 <code>平年</code>。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "2000"
+      ],
+      "output": [
+        "閏年"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "1900"
+      ],
+      "output": [
+        "平年"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "2024"
+      ],
+      "output": [
+        "閏年"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "2023"
+      ],
+      "output": [
+        "平年"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "你需要使用條件判斷語句 (<code>if...else if...else</code> 或巢狀的 <code>if</code>)。",
+    "如何檢查一個數字是否能被另一個數字整除？ (提示：<code>%</code> 餘數運算子)",
+    "注意閏年判斷的邏輯順序，需要同時滿足或滿足其中一個條件。",
+    "記得將輸入的<strong>字串</strong>轉換成數字再進行比較和計算。"
+  ],
+  "defaultCode": "function main(input) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input) {\n  const year = parseInt(input);\n  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {\n    console.log('閏年');\n  } else {\n    console.log('平年');\n  }\n}",
+  "examplePythonCode": "def main(input):\n  year = int(input)\n  if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):\n    print('閏年')\n  else:\n    print('平年')\n",
+  "testCases": [
+    { "input": ["2000"], "expectedOutput": "閏年" },
+    { "input": ["1900"], "expectedOutput": "平年" },
+    { "input": ["2024"], "expectedOutput": "閏年" },
+    { "input": ["2023"], "expectedOutput": "平年" },
+    { "input": ["1600"], "expectedOutput": "閏年" },
+    { "input": ["1700"], "expectedOutput": "平年" },
+    { "input": ["1800"], "expectedOutput": "平年" },
+    { "input": ["2100"], "expectedOutput": "平年" },
+    { "input": ["2004"], "expectedOutput": "閏年" },
+    { "input": ["1"], "expectedOutput": "平年" }
+  ]
+}

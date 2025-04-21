@@ -1,0 +1,125 @@
+{
+  "title": "移除字串中的母音",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個函式，讀入一個字串 <code>input</code>，移除其中的所有母音（a, e, i, o, u，不分大小寫），並輸出結果字串。</p><p>例如：輸入字串 <code>Hello World</code>，移除母音後應輸出 <code>Hll Wrld</code>。</p>",
+  "inputFormat": [
+    "輸入總共一行，內含一個字串 <code>input</code>。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出移除母音後的字串。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出移除母音後的字串。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "Hello World"
+      ],
+      "output": [
+        "Hll Wrld"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "Programming is fun"
+      ],
+      "output": [
+        "Prgrmmng s fn"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "AEIOUaeiou"
+      ],
+      "output": [
+        ""
+      ],
+      "explanation": "所有字元都是母音，移除後為空字串。"
+    },
+    {
+      "input": [
+        "Rhythm"
+      ],
+      "output": [
+        "Rhythm"
+      ],
+      "explanation": "字串中沒有母音。"
+    }
+  ],
+  "hints": [
+    "你需要讀取一個輸入字串。",
+    "如何逐一檢查字串中的每個字元？",
+    "如何判斷一個字元是否為母音（包含大小寫）？ (提示：可以使用 <code>if</code> 條件判斷，檢查字元是否等於 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' 中的任何一個)",
+    "你可以建立一個新的空字串，只將非母音的字元加到這個新字串中。",
+    "JavaScript: 可以使用 <code>string.includes()</code> 或正規表達式 <code>string.replace(/[aeiou]/gi, '')</code>。",
+    "Python: 可以使用 <code>char.lower() in 'aeiou'</code> 判斷，或使用迴圈和字串串接。"
+  ],
+  "defaultCode": "function main(input) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input) {\n  const vowels = 'aeiouAEIOU';\n  let result = '';\n  for (const char of input) {\n    if (!vowels.includes(char)) {\n      result += char;\n    }\n  }\n  console.log(result);\n}",
+  "examplePythonCode": "def main(input):\n  vowels = 'aeiouAEIOU'\n  result = \"\"\n  for char in input:\n    if char not in vowels:\n      result += char\n  print(result)\n",
+  "testCases": [
+    {
+      "input": [
+        "Hello World"
+      ],
+      "expectedOutput": "Hll Wrld"
+    },
+    {
+      "input": [
+        "Programming is fun"
+      ],
+      "expectedOutput": "Prgrmmng s fn"
+    },
+    {
+      "input": [
+        "AEIOUaeiou"
+      ],
+      "expectedOutput": ""
+    },
+    {
+      "input": [
+        "Rhythm"
+      ],
+      "expectedOutput": "Rhythm"
+    },
+    {
+      "input": [
+        "JavaScript"
+      ],
+      "expectedOutput": "JvScrpt"
+    },
+    {
+      "input": [
+        "Python"
+      ],
+      "expectedOutput": "Pythn"
+    },
+    {
+      "input": [
+        "Quick Brown Fox"
+      ],
+      "expectedOutput": "Qck Brwn Fx"
+    },
+    {
+      "input": [
+        "12345"
+      ],
+      "expectedOutput": "12345"
+    },
+    {
+      "input": [
+        ""
+      ],
+      "expectedOutput": ""
+    },
+    {
+      "input": [
+        "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
+      ],
+      "expectedOutput": "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
+    }
+  ]
+}

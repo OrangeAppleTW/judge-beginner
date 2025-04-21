@@ -991,7 +991,7 @@ function setupEventListeners() {
                  return;
             }
 
-             const inputPincode = prompt("請輸入 Pincode 以載入解答範例：");
+             const inputPincode = prompt("請輸入密碼以載入範例解答：");
              if (inputPincode === null) return; // User cancelled
 
             try {

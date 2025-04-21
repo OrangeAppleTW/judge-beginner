@@ -1,0 +1,116 @@
+{
+  "title": "計算階乘",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個程式，讀入一個非負整數 <code>input</code>，計算並輸出它的階乘。</p><p>階乘的定義是：<code>n! = n * (n-1) * (n-2) * ... * 1</code>。</p><p>特別地，<code>0!</code> 的值定義為 <code>1</code>。</p>",
+  "inputFormat": [
+    "輸入總共一行，包含一個非負整數 <code>input</code>。",
+    "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出計算出的階乘結果。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出計算出的階乘結果。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "5"
+      ],
+      "output": [
+        "120"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "0"
+      ],
+      "output": [
+        "1"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "1"
+      ],
+      "output": [
+        "1"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "你需要使用迴圈來重複計算乘法。",
+    "考慮如何處理 <code>0</code> 的特殊情況。",
+    "初始化一個變數來儲存階乘的結果，初始值應該是多少？（提示：乘法的單位元素是 1）",
+    "JavaScript： 使用 <code>parseInt()</code> 將字串轉換為整數。",
+    "Python： 使用 <code>int()</code> 將字串轉換為整數。"
+  ],
+  "defaultCode": "function main(input) {\n  // 請在此函數內完成你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input) {\n  const n = parseInt(input);\n  if (n === 0) {\n    console.log(1);\n    return;\n  }\n  let factorial = 1;\n  for (let i = 1; i <= n; i++) {\n    factorial *= i;\n  }\n  console.log(factorial);\n}",
+  "examplePythonCode": "def main(input):\n  n = int(input)\n  if n == 0:\n    print(1)\n    return\n  factorial = 1\n  for i in range(1, n + 1):\n    factorial *= i\n  print(factorial)\n",
+  "testCases": [
+    {
+      "input": [
+        "0"
+      ],
+      "expectedOutput": "1"
+    },
+    {
+      "input": [
+        "1"
+      ],
+      "expectedOutput": "1"
+    },
+    {
+      "input": [
+        "2"
+      ],
+      "expectedOutput": "2"
+    },
+    {
+      "input": [
+        "3"
+      ],
+      "expectedOutput": "6"
+    },
+    {
+      "input": [
+        "4"
+      ],
+      "expectedOutput": "24"
+    },
+    {
+      "input": [
+        "5"
+      ],
+      "expectedOutput": "120"
+    },
+    {
+      "input": [
+        "6"
+      ],
+      "expectedOutput": "720"
+    },
+    {
+      "input": [
+        "7"
+      ],
+      "expectedOutput": "5040"
+    },
+    {
+      "input": [
+        "10"
+      ],
+      "expectedOutput": "3628800"
+    },
+    {
+      "input": [
+        "12"
+      ],
+      "expectedOutput": "479001600"
+    }
+  ]
+}

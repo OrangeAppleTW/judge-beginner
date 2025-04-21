@@ -1,0 +1,66 @@
+{
+  "title": "標題大小寫轉換",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個程式，讀入一個包含數個單字的字串 <code>input</code> (以空格分隔)，將其轉換為「標題大小寫」格式並輸出。</p><p>標題大小寫格式是指：每個單字的第一個字母轉換為大寫，其餘字母轉換為小寫。</p>",
+  "inputFormat": [
+    "輸入總共一行，包含一個字串 <code>input</code>，可能包含大小寫字母和空格。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出轉換為標題大小寫格式後的字串。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出轉換為標題大小寫格式後的字串。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "hello world"
+      ],
+      "output": [
+        "Hello World"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "jAVasCrIPt iS fUn"
+      ],
+      "output": [
+        "Javascript Is Fun"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "single"
+      ],
+      "output": [
+        "Single"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "如何將輸入字串按空格分割成單字陣列？ (提示：<code>split(' ')</code>)",
+    "如何遍歷單字陣列中的每個單字？",
+    "對於每個單字，如何取得第一個字元並將其轉為大寫？ (提示：<code>toUpperCase()</code>)",
+    "如何取得單字中除了第一個字元以外的其餘部分，並將其轉為小寫？ (提示：<code>slice(1)</code> 或 <code>substring(1)</code>，以及 <code>toLowerCase()</code>)",
+    "如何將處理過的第一個大寫字母和其餘小寫字母組合回一個單字？",
+    "最後，如何將處理過的單字陣列重新組合成一個以空格分隔的字串？ (提示：<code>join(' ')</code>)"
+  ],
+  "defaultCode": "function main(input) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input) {\n  const words = input.split(' ');\n  const titleCasedWords = words.map(word => {\n    if (word.length === 0) return '';\n    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();\n  });\n  console.log(titleCasedWords.join(' '));\n}",
+  "examplePythonCode": "def main(input):\n  words = input.split(' ')\n  title_cased_words = []\n  for word in words:\n    if not word:\n      title_cased_words.append('')\n    else:\n      title_cased_words.append(word[0].upper() + word[1:].lower())\n  print(' '.join(title_cased_words))\n",
+  "testCases": [
+    { "input": ["hello world"], "expectedOutput": "Hello World" },
+    { "input": ["jAVasCrIPt iS fUn"], "expectedOutput": "Javascript Is Fun" },
+    { "input": ["single"], "expectedOutput": "Single" },
+    { "input": ["a"], "expectedOutput": "A" },
+    { "input": [""], "expectedOutput": "" },
+    { "input": [" multiple   spaces "], "expectedOutput": " Multiple   Spaces " },
+    { "input": ["ALL CAPS"], "expectedOutput": "All Caps" },
+    { "input": ["already title case"], "expectedOutput": "Already Title Case" },
+    { "input": ["1st word"], "expectedOutput": "1st Word" },
+    { "input": [" a b c "], "expectedOutput": " A B C " }
+  ]
+}

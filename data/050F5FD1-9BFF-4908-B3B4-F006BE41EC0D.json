@@ -1,0 +1,151 @@
+{
+  "title": "計算字元出現次數",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個函式，讀入一個字串 <code>input1</code> 和一個字元 <code>input2</code>，計算並輸出字元 <code>input2</code> 在字串 <code>input1</code> 中出現的總次數。</p><p>這個比較是<strong>區分大小寫</strong>的。</p><p>例如：輸入字串 <code>banana</code> 和字元 <code>a</code>，應輸出 <code>3</code>。</p><p>輸入字串 <code>Hello World</code> 和字元 <code>l</code>，應輸出 <code>3</code>。</p>",
+  "inputFormat": [
+    "輸入共有兩行。",
+    "第一行是輸入的字串 <code>input1</code>。",
+    "第二行是輸入的單一字元 <code>input2</code>。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出計算出的次數（一個整數）。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出計算出的次數（一個整數）。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "banana",
+        "a"
+      ],
+      "output": [
+        "3"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "hello world",
+        "l"
+      ],
+      "output": [
+        "3"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "Mississippi",
+        "s"
+      ],
+      "output": [
+        "4"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "test",
+        "z"
+      ],
+      "output": [
+        "0"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "AAAAA",
+        "a"
+      ],
+      "output": [
+        "0"
+      ],
+      "explanation": "比較是區分大小寫的。"
+    }
+  ],
+  "hints": [
+    "你需要讀取兩個輸入：一個字串和一個字元。",
+    "如何逐一檢查字串中的每個字元？ (提示：可以使用迴圈)",
+    "你需要一個變數來記錄找到的次數。",
+    "當字串中的字元與要尋找的字元相同時，將計數器加一。",
+    "JavaScript: 可以使用 <code>for...of</code> 迴圈或 <code>string.split('').filter().length</code>。",
+    "Python: 可以使用 <code>for</code> 迴圈或內建的 <code>string.count()</code> 方法。"
+  ],
+  "defaultCode": "function main(input1, input2) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input1, input2):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input1, input2) {\n  let count = 0;\n  for (const char of input1) {\n    if (char === input2) {\n      count++;\n    }\n  }\n  console.log(count);\n}",
+  "examplePythonCode": "def main(input1, input2):\n  count = 0\n  for char in input1:\n    if char == input2:\n      count += 1\n  print(count)\n  # 或者直接使用: print(input1.count(input2))\n",
+  "testCases": [
+    {
+      "input": [
+        "banana",
+        "a"
+      ],
+      "expectedOutput": "3"
+    },
+    {
+      "input": [
+        "hello world",
+        "l"
+      ],
+      "expectedOutput": "3"
+    },
+    {
+      "input": [
+        "Mississippi",
+        "s"
+      ],
+      "expectedOutput": "4"
+    },
+    {
+      "input": [
+        "test",
+        "z"
+      ],
+      "expectedOutput": "0"
+    },
+    {
+      "input": [
+        "AAAAA",
+        "a"
+      ],
+      "expectedOutput": "0"
+    },
+    {
+      "input": [
+        "abcabcabc",
+        "b"
+      ],
+      "expectedOutput": "3"
+    },
+    {
+      "input": [
+        "",
+        "a"
+      ],
+      "expectedOutput": "0"
+    },
+    {
+      "input": [
+        "xyz",
+        "x"
+      ],
+      "expectedOutput": "1"
+    },
+    {
+      "input": [
+        "Programming",
+        "m"
+      ],
+      "expectedOutput": "2"
+    },
+    {
+      "input": [
+        "   ",
+        " "
+      ],
+      "expectedOutput": "3"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "title": "計算數字位數和",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個程式，讀入一個非負整數 <code>input</code>，計算其所有位數的數字總和並輸出。</p><p>例如：輸入 <code>123</code>，則輸出 <code>1 + 2 + 3 = 6</code>。</p>",
+  "inputFormat": [
+    "輸入總共一行，包含一個非負整數 <code>input</code>。",
+    "輸入的資料會以<strong>字串</strong>格式傳入。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出計算出的位數數字總和。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出計算出的位數數字總和。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "123"
+      ],
+      "output": [
+        "6"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "45"
+      ],
+      "output": [
+        "9"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "0"
+      ],
+      "output": [
+        "0"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "9"
+      ],
+      "output": [
+        "9"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "你需要讀取一個輸入值 (字串)。",
+    "如何遍歷字串中的每個字元？",
+    "如何將每個代表數字的字元轉換成真正的數字進行加總？ (提示：<code>parseInt()</code> 或 <code>Number()</code> for JS, <code>int()</code> for Python)",
+    "你需要一個變數來累加總和。"
+  ],
+  "defaultCode": "function main(input) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input) {\n  let sum = 0;\n  for (let i = 0; i < input.length; i++) {\n    sum += parseInt(input[i]);\n  }\n  console.log(sum);\n}",
+  "examplePythonCode": "def main(input):\n  sum_of_digits = 0\n  for digit in input:\n    sum_of_digits += int(digit)\n  print(sum_of_digits)\n",
+  "testCases": [
+    { "input": ["123"], "expectedOutput": "6" },
+    { "input": ["45"], "expectedOutput": "9" },
+    { "input": ["0"], "expectedOutput": "0" },
+    { "input": ["9"], "expectedOutput": "9" },
+    { "input": ["100"], "expectedOutput": "1" },
+    { "input": ["999"], "expectedOutput": "27" },
+    { "input": ["123456789"], "expectedOutput": "45" },
+    { "input": ["50505"], "expectedOutput": "15" },
+    { "input": ["11111"], "expectedOutput": "5" },
+    { "input": ["8765"], "expectedOutput": "26" }
+  ]
+}

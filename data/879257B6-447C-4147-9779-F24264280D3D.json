@@ -1,0 +1,123 @@
+{
+  "title": "尋找最大值",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個函式，讀入一行包含數個以空格分隔的整數，找出並輸出其中最大的數字。</p><p>例如：輸入 <code>1 5 2 9 3</code>，應輸出 <code>9</code>。</p>",
+  "inputFormat": [
+    "輸入總共一行，包含一個或多個以空格分隔的整數 <code>input</code>。",
+    "輸入的資料會以<strong>字串</strong>格式傳入，你需要先將其分割成個別數字的字串，然後再轉換成數字進行比較。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出找到的最大整數。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出找到的最大整數。"
+  ],
+  "examples": [
+    {
+      "input": [
+        "1 5 2 9 3"
+      ],
+      "output": [
+        "9"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "-1 -5 -2 -9 -3"
+      ],
+      "output": [
+        "-1"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "100"
+      ],
+      "output": [
+        "100"
+      ],
+      "explanation": ""
+    },
+    {
+      "input": [
+        "0 8 -3 5"
+      ],
+      "output": [
+        "8"
+      ],
+      "explanation": ""
+    }
+  ],
+  "hints": [
+    "如何將包含空格的輸入字串分割成個別數字的字串陣列？ (提示：JavaScript: <code>string.split(' ')</code>, Python: <code>string.split()</code>)",
+    "如何將數字字串陣列轉換成數字陣列？ (提示：JavaScript: <code>array.map(Number)</code> 或 <code>array.map(s => parseInt(s))</code>, Python: <code>map(int, list)</code>)",
+    "如何找出一個數字陣列中的最大值？ (提示：可以使用迴圈逐一比較，或者利用內建函式。JavaScript: <code>Math.max(...array)</code>, Python: <code>max(list)</code>)"
+  ],
+  "defaultCode": "function main(input) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "def main(input):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input) {\n  const numbers = input.split(' ').map(Number);\n  const maxVal = Math.max(...numbers);\n  console.log(maxVal);\n}",
+  "examplePythonCode": "def main(input):\n  numbers = list(map(int, input.split()))\n  max_val = max(numbers)\n  print(max_val)\n",
+  "testCases": [
+    {
+      "input": [
+        "1 2 3 4 5"
+      ],
+      "expectedOutput": "5"
+    },
+    {
+      "input": [
+        "10 2 8 5 1"
+      ],
+      "expectedOutput": "10"
+    },
+    {
+      "input": [
+        "-1 -2 -3 -4 -5"
+      ],
+      "expectedOutput": "-1"
+    },
+    {
+      "input": [
+        "0 0 0 0"
+      ],
+      "expectedOutput": "0"
+    },
+    {
+      "input": [
+        "7"
+      ],
+      "expectedOutput": "7"
+    },
+    {
+      "input": [
+        "-10 5 0 -2 8"
+      ],
+      "expectedOutput": "8"
+    },
+    {
+      "input": [
+        "99 100 1 2"
+      ],
+      "expectedOutput": "100"
+    },
+    {
+      "input": [
+        "5 5 5 5 5"
+      ],
+      "expectedOutput": "5"
+    },
+    {
+      "input": [
+        "-100 -50 -200"
+      ],
+      "expectedOutput": "-50"
+    },
+    {
+      "input": [
+        "1000 999 1001"
+      ],
+      "expectedOutput": "1001"
+    }
+  ]
+}

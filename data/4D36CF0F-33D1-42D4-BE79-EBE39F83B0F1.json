@@ -1,0 +1,160 @@
+{
+  "title": "計算兩點間距離",
+  "functionName": "main",
+  "pythonFunctionName": "main",
+  "descriptionContentHTML": "<p>請寫一個函式，讀入兩個點的二維座標 (x1, y1) 和 (x2, y2)，計算並輸出這兩點之間的歐幾里得距離。</p><p>歐幾里得距離公式為：<code>√((x2 - x1)² + (y2 - y1)²)</code></p>",
+  "inputFormat": [
+    "輸入共有四行。",
+    "第一行是第一個點的 x 座標 <code>input1</code>。",
+    "第二行是第一個點的 y 座標 <code>input2</code>。",
+    "第三行是第二個點的 x 座標 <code>input3</code>。",
+    "第四行是第二個點的 y 座標 <code>input4</code>。",
+    "輸入的資料會以<strong>字串</strong>格式傳入，進行數字相關運算前，請記得先將其轉換成數字。"
+  ],
+  "outputFormat": [
+    "<strong>JavaScript：</strong> 請使用 <code>console.log()</code> 輸出計算出的距離。",
+    "<strong>Python：</strong> 請使用 <code>print()</code> 輸出計算出的距離。",
+    "<strong>輸出結果請四捨五入至小數點後第二位。</strong>"
+  ],
+  "examples": [
+    {
+      "input": [
+        "0",
+        "0",
+        "3",
+        "4"
+      ],
+      "output": [
+        "5.00"
+      ],
+      "explanation": "點 (0, 0) 和 (3, 4) 的距離是 5。"
+    },
+    {
+      "input": [
+        "1",
+        "1",
+        "4",
+        "5"
+      ],
+      "output": [
+        "5.00"
+      ],
+      "explanation": "點 (1, 1) 和 (4, 5) 的距離是 5。"
+    },
+    {
+      "input": [
+        "-1",
+        "-2",
+        "2",
+        "2"
+      ],
+      "output": [
+        "5.00"
+      ],
+      "explanation": "點 (-1, -2) 和 (2, 2) 的距離是 5。"
+    }
+  ],
+  "hints": [
+    "你需要讀取四個輸入值：x1, y1, x2, y2。",
+    "記得將輸入的<strong>字串</strong>轉換成數字。",
+    "如何計算差值的平方？ (提示：<code>** 2</code> 或 <code>Math.pow(diff, 2)</code>)",
+    "如何計算平方根？ (提示：JavaScript: <code>Math.sqrt()</code>, Python: <code>math.sqrt()</code>)",
+    "記得將最終結果四捨五入到小數點後兩位。 (提示：JavaScript: <code>number.toFixed(2)</code>, Python: <code>round(number, 2)</code> 或 f-string <code>f'{number:.2f}'</code>)"
+  ],
+  "defaultCode": "function main(input1, input2, input3, input4) {\n  // 請在此函數裡撰寫你的 JavaScript 程式碼。\n  // 使用 console.log() 輸出結果\n\n}",
+  "defaultPythonCode": "import math\n\ndef main(input1, input2, input3, input4):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  使用 print() 輸出結果。\n  \"\"\"\n  ",
+  "exampleCode": "function main(input1, input2, input3, input4) {\n  const x1 = parseFloat(input1);\n  const y1 = parseFloat(input2);\n  const x2 = parseFloat(input3);\n  const y2 = parseFloat(input4);\n\n  const deltaX = x2 - x1;\n  const deltaY = y2 - y1;\n\n  const distance = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));\n  console.log(distance.toFixed(2));\n}",
+  "examplePythonCode": "import math\n\ndef main(input1, input2, input3, input4):\n  x1 = float(input1)\n  y1 = float(input2)\n  x2 = float(input3)\n  y2 = float(input4)\n\n  delta_x = x2 - x1\n  delta_y = y2 - y1\n\n  distance = math.sqrt(delta_x**2 + delta_y**2)\n  print(f'{distance:.2f}')\n",
+  "testCases": [
+    {
+      "input": [
+        "0",
+        "0",
+        "3",
+        "4"
+      ],
+      "expectedOutput": "5.00"
+    },
+    {
+      "input": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "expectedOutput": "0.00"
+    },
+    {
+      "input": [
+        "0",
+        "0",
+        "0",
+        "10"
+      ],
+      "expectedOutput": "10.00"
+    },
+    {
+      "input": [
+        "-5",
+        "0",
+        "5",
+        "0"
+      ],
+      "expectedOutput": "10.00"
+    },
+    {
+      "input": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "expectedOutput": "2.83"
+    },
+    {
+      "input": [
+        "-1",
+        "-1",
+        "-4",
+        "-5"
+      ],
+      "expectedOutput": "5.00"
+    },
+    {
+      "input": [
+        "10",
+        "10",
+        "10",
+        "10"
+      ],
+      "expectedOutput": "0.00"
+    },
+    {
+      "input": [
+        "2.5",
+        "1.5",
+        "5.5",
+        "4.5"
+      ],
+      "expectedOutput": "4.24"
+    },
+    {
+      "input": [
+        "0",
+        "0",
+        "1",
+        "1"
+      ],
+      "expectedOutput": "1.41"
+    },
+    {
+      "input": [
+        "7",
+        "8",
+        "1",
+        "0"
+      ],
+      "expectedOutput": "10.00"
+    }
+  ]
+}
