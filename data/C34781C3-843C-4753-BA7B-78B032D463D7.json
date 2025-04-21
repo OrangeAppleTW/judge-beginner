@@ -12,19 +12,31 @@
     ],
     "examples": [
         {
-            "input": ["10"],
-            "output": ["偶數"],
-            "explanation": "<p>因為 <code>10</code> 除以 <code>2</code> 的餘數是 <code>0</code>，所以是偶數。</p>"
+            "input": [
+                "10"
+            ],
+            "output": [
+                "偶數"
+            ],
+            "explanation": "因為 10 除以 2 的餘數是 0，所以是偶數。"
         },
         {
-            "input": ["7"],
-            "output": ["奇數"],
-            "explanation": "<p>因為 <code>7</code> 除以 <code>2</code> 的餘數是 <code>1</code>，所以是奇數。</p>"
+            "input": [
+                "7"
+            ],
+            "output": [
+                "奇數"
+            ],
+            "explanation": "因為 7 除以 2 的餘數是 1，所以是奇數。"
         },
         {
-            "input": ["0"],
-            "output": ["偶數"],
-            "explanation": "<p><code>0</code> 是偶數。</p>"
+            "input": [
+                "0"
+            ],
+            "output": [
+                "偶數"
+            ],
+            "explanation": "0 是偶數。"
         }
     ],
     "hints": [
@@ -37,12 +49,47 @@
     "exampleCode": "function checkOddEven(n) {\n  // 請在此函式內完成你的 JavaScript 程式碼。\n  // n 是一個非負整數。\n  // 使用 console.log() 輸出 '偶數' 或 '奇數'。\n  if (n % 2 === 0) {\n    console.log('偶數');\n  } else {\n    console.log('奇數');\n  }\n}",
     "examplePythonCode": "def check_odd_even(n):\n  \"\"\"\n  請在此函數內完成你的 Python 程式碼。\n  n 是一個非負整數。\n  使用 print() 輸出 '偶數' 或 '奇數'。\n  \"\"\"\n  if n % 2 == 0:\n    print('偶數')\n  else:\n    print('奇數')\n",
     "testCases": [
-        {"input": ["0"], "expectedOutput": "偶數"},
-        {"input": ["1"], "expectedOutput": "奇數"},
-        {"input": ["2"], "expectedOutput": "偶數"},
-        {"input": ["99"], "expectedOutput": "奇數"},
-        {"input": ["100"], "expectedOutput": "偶數"},
-        {"input": ["12345"], "expectedOutput": "奇數"},
-        {"input": ["54320"], "expectedOutput": "偶數"}
+        {
+            "input": [
+                "0"
+            ],
+            "expectedOutput": "偶數"
+        },
+        {
+            "input": [
+                "1"
+            ],
+            "expectedOutput": "奇數"
+        },
+        {
+            "input": [
+                "2"
+            ],
+            "expectedOutput": "偶數"
+        },
+        {
+            "input": [
+                "99"
+            ],
+            "expectedOutput": "奇數"
+        },
+        {
+            "input": [
+                "100"
+            ],
+            "expectedOutput": "偶數"
+        },
+        {
+            "input": [
+                "12345"
+            ],
+            "expectedOutput": "奇數"
+        },
+        {
+            "input": [
+                "54320"
+            ],
+            "expectedOutput": "偶數"
+        }
     ]
 }
