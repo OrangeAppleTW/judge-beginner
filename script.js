@@ -236,12 +236,11 @@ async function handleRoute() {
                 viewPincodeBtn.style.display = shouldLoadExample ? 'inline-flex' : 'none';
             }
              if (shareProblemBtn) {
-                 // <-- 修改: 根據 problemId 和 embed 決定是否顯示分享按鈕 -->
-                 const specificProblemId = '3A5FA4C1-B28E-469C-BB88-F238F5713CF3';
-                 if (problemId === specificProblemId && embed === 'true') {
+                 // <-- 修改: 根據 embed 決定是否顯示分享按鈕 -->
+                 if (embed === 'true') { // 只檢查 embed 參數是否為 'true'
                      shareProblemBtn.style.display = 'inline-flex'; // 或 'block'，視情況而定
                  } else {
-                     shareProblemBtn.style.display = 'none';
+                     shareProblemBtn.style.display = 'none'; // 其他情況 (沒有 embed=true) 都隱藏
                  }
              }
             // --- End Button Visibility Control ---
