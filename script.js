@@ -230,6 +230,15 @@ async function handleRoute() {
             // --- Button Visibility Control ---
             const isEmbedded = embed === 'true'; // Check if embedded
 
+            // --- MODIFICATION START: Hide navbar when embedded ---
+            const navbar = document.querySelector('nav.header');
+            if (navbar) {
+                navbar.style.display = isEmbedded ? 'none' : ''; // Hide if embedded, show otherwise (rely on CSS default)
+            } else {
+                console.warn("Navbar element ('nav.header') not found for visibility control.");
+            }
+            // --- MODIFICATION END ---
+
             if (loadExampleBtn) {
                 loadExampleBtn.style.display = shouldLoadExample ? 'none' : 'inline-flex';
             }
