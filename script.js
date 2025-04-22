@@ -30,11 +30,14 @@ const closeHelpBtn = document.getElementById('close-help');
 const importCodeBtn = document.getElementById('import-code');
 const fileInput = document.getElementById('file-input');
 const loadExampleBtn = document.getElementById('load-example-btn');
-const viewPincodeBtn = document.getElementById('view-pincode-btn'); // <-- 新增: 查看密碼按鈕
-const pincodeModal = document.getElementById('pincode-modal');       // <-- 新增: Modal 本身
-const closeModalBtn = document.getElementById('close-modal-btn');     // <-- 新增: Modal 關閉按鈕
-const modalPincodeDisplay = document.getElementById('modal-pincode-display'); // <-- 新增: Modal 中顯示密碼的元素
-const copyPincodeBtn = document.getElementById('copy-pincode-btn');     // <-- 新增: Modal 中複製按鈕
+const viewPincodeBtn = document.getElementById('view-pincode-btn');
+const shareProblemBtn = document.getElementById('share-problem-btn'); // <-- 新增: 分享按鈕
+const infoModal = document.getElementById('info-modal');             // <-- 修改: 通用 Modal
+const closeInfoModalBtn = document.getElementById('close-info-modal-btn'); // <-- 修改: 通用關閉按鈕
+const modalTitle = document.getElementById('modal-title');             // <-- 新增: Modal 標題
+const modalDescription = document.getElementById('modal-description');   // <-- 新增: Modal 描述
+const modalContentDisplay = document.getElementById('modal-content-display'); // <-- 修改: Modal 內容顯示
+const copyContentBtn = document.getElementById('copy-content-btn');       // <-- 修改: 通用複製按鈕
 // --- End DOM References ---
 
 // --- Helper Functions ---
@@ -222,8 +225,13 @@ async function handleRoute() {
                 loadExampleBtn.style.display = shouldLoadExample ? 'none' : 'inline-flex';
             }
             if (viewPincodeBtn) {
+                // Show view pincode button only if pincode is correct
                 viewPincodeBtn.style.display = shouldLoadExample ? 'inline-flex' : 'none';
             }
+             if (shareProblemBtn) {
+                 // Show share button whenever a problem is loaded
+                 shareProblemBtn.style.display = 'inline-flex';
+             }
             // --- End Button Visibility Control ---
 
 
@@ -259,7 +267,7 @@ function displayProblem(config) {
         return;
     }
     mainTitle.textContent = config.title || "未命名題目";
-    document.title = config.title || "程式解題";
+    document.title = config.title + "｜橘子蘋果程式學苑" || "程式解題";
 
     const renderArrayAsList = (itemsArray) => {
         if (!Array.isArray(itemsArray) || itemsArray.length === 0) return '<p>此題沒有相關說明</p>';
@@ -856,19 +864,22 @@ function setupEventListeners() {
         return;
     }
 
-    // Ensure buttons exist (check both new buttons, allow if modal elements are missing initially)
+    // Ensure essential buttons exist
     const essentialButtons = [runButton, resetCodeBtn, saveCodeBtn, exportCodeBtn, importCodeBtn, switchEditorBtn];
     if (essentialButtons.some(btn => !btn)) {
-         console.error("One or more essential buttons not found during event listener setup. Listeners not attached.");
-         return; // Stop if essential buttons are missing
+        console.error("One or more essential buttons not found during event listener setup. Listeners not attached.");
+        return; // Stop if essential buttons are missing
     }
     // Check optional buttons/modal elements and log warnings if missing
     if (!loadExampleBtn) console.warn("Load Example button (load-example-btn) not found.");
     if (!viewPincodeBtn) console.warn("View Pincode button (view-pincode-btn) not found.");
-    if (!pincodeModal) console.warn("Pincode modal (pincode-modal) not found.");
-    if (!closeModalBtn) console.warn("Close modal button (close-modal-btn) not found.");
-    if (!modalPincodeDisplay) console.warn("Modal pincode display (modal-pincode-display) not found.");
-    if (!copyPincodeBtn) console.warn("Copy pincode button (copy-pincode-btn) not found.");
+    if (!shareProblemBtn) console.warn("Share Problem button (share-problem-btn) not found."); // <-- 新增檢查
+    if (!infoModal) console.warn("Info modal (info-modal) not found."); // <-- 修改檢查
+    if (!closeInfoModalBtn) console.warn("Close info modal button (close-info-modal-btn) not found."); // <-- 修改檢查
+    if (!modalTitle) console.warn("Modal title (modal-title) not found."); // <-- 新增檢查
+    if (!modalDescription) console.warn("Modal description (modal-description) not found."); // <-- 新增檢查
+    if (!modalContentDisplay) console.warn("Modal content display (modal-content-display) not found."); // <-- 修改檢查
+    if (!copyContentBtn) console.warn("Copy content button (copy-content-btn) not found."); // <-- 修改檢查
 
 
     // <--- LATEST MODIFICATION: Removed button state setting logic from here --->
@@ -1024,26 +1035,53 @@ function setupEventListeners() {
     }
     // End Load Example Button Listener
 
+    // --- Generic Info Modal Logic ---
+    function openInfoModal(title, description, contentToDisplay, contentToCopy) {
+        if (!infoModal || !modalTitle || !modalDescription || !modalContentDisplay) {
+            console.error("Modal elements missing, cannot open modal.");
+            showNotification("開啟資訊視窗時發生錯誤。");
+            return;
+        }
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        modalContentDisplay.textContent = contentToDisplay;
+        // Store the text to be copied in a data attribute for the copy button
+        modalContentDisplay.dataset.copyText = contentToCopy || contentToDisplay; // Fallback to displayed text if copy text not provided
 
-    // View Pincode Button Listener (Open Modal) <-- 新增
-    if (viewPincodeBtn && pincodeModal && modalPincodeDisplay) {
+        infoModal.style.display = 'block';
+        setTimeout(() => infoModal.classList.add('show'), 10); // For transition
+    }
+
+    function closeInfoModal() {
+        if (!infoModal) return;
+        infoModal.classList.remove('show');
+        setTimeout(() => {
+            if (!infoModal.classList.contains('show')) {
+                infoModal.style.display = 'none';
+            }
+        }, 300); // Match CSS transition duration
+    }
+
+    // View Pincode Button Listener (Uses Generic Modal)
+    if (viewPincodeBtn) {
         viewPincodeBtn.addEventListener('click', async () => {
             const { problemId: currentProblemIdFromHash } = parseHash();
             if (!currentProblemIdFromHash) {
-                 showNotification("錯誤：無法從目前網址取得題目 ID。");
-                 return;
+                showNotification("錯誤：無法從目前網址取得題目 ID。"); return;
             }
-             try {
+            try {
                 const resp = await fetch('data/problems.json');
                 if (!resp.ok) throw new Error(`無法讀取 problems.json: ${resp.statusText}`);
                 const problems = await resp.json();
                 const problemInfo = problems.find(p => p.id === currentProblemIdFromHash);
 
                 if (problemInfo && problemInfo.pincode !== undefined) {
-                    modalPincodeDisplay.textContent = problemInfo.pincode; // Display the pincode
-                    pincodeModal.style.display = 'block'; // Show the modal
-                    // Add 'show' class after a tiny delay for CSS transition
-                    setTimeout(() => pincodeModal.classList.add('show'), 10);
+                    openInfoModal(
+                        "範例解答密碼",
+                        "點擊以下按鈕就可以複製密碼，可以提供此密碼給需要的使用者來查看範例解答。",
+                        problemInfo.pincode, // Display pincode
+                        problemInfo.pincode  // Copy pincode
+                    );
                 } else {
                     showNotification("錯誤：找不到此題目的 Pincode 資訊。");
                     console.error(`Pincode info not found for problem ID: ${currentProblemIdFromHash} in problems.json`);
@@ -1054,46 +1092,53 @@ function setupEventListeners() {
             }
         });
     }
-    // End View Pincode Button Listener
 
-    // Modal Close Button Listener <-- 新增
-    if (closeModalBtn && pincodeModal) {
-        closeModalBtn.addEventListener('click', () => {
-            pincodeModal.classList.remove('show');
-            // Hide after transition finishes
-             setTimeout(() => {
-                if (!pincodeModal.classList.contains('show')) { // Check if still hidden
-                    pincodeModal.style.display = 'none';
-                }
-            }, 300); // Match CSS transition duration
+    // Share Problem Button Listener (Uses Generic Modal) <-- 新增
+    if (shareProblemBtn) {
+        shareProblemBtn.addEventListener('click', () => {
+            const currentUrl = location.href;
+            // Remove the query string part (?pincode=...)
+            const shareUrl = currentUrl.split('?')[0];
+            openInfoModal(
+                "分享題目連結",
+                "點擊以下按鈕就可以複製連結並分享此題，分享的網址不會包含範例解答密碼。",
+                shareUrl, // Display the clean URL
+                shareUrl  // Copy the clean URL
+            );
         });
     }
 
-     // Modal Copy Button Listener <-- 新增
-     if (copyPincodeBtn && modalPincodeDisplay) {
-         copyPincodeBtn.addEventListener('click', () => {
-             const pincodeToCopy = modalPincodeDisplay.textContent;
-             if (pincodeToCopy && navigator.clipboard) {
-                 navigator.clipboard.writeText(pincodeToCopy).then(() => {
-                     showNotification("Pincode 已複製！");
-                 }).catch(err => {
-                     console.error('無法複製 Pincode: ', err);
-                     showNotification("複製失敗，請手動複製。");
-                 });
-             } else {
-                  showNotification("複製功能無法使用或無內容可複製。");
-             }
-         });
-     }
+    // Modal Close Button Listener (Uses Generic Modal)
+    if (closeInfoModalBtn) {
+        closeInfoModalBtn.addEventListener('click', closeInfoModal);
+    }
 
-     // Optional: Close modal when clicking outside the modal content <-- 新增
-     if (pincodeModal) {
-         pincodeModal.addEventListener('click', (event) => {
-             if (event.target === pincodeModal) { // Check if the click is on the background overlay
-                 closeModalBtn.click(); // Trigger the close button's logic
-             }
-         });
-     }
+    // Modal Copy Button Listener (Uses Generic Modal)
+    if (copyContentBtn && modalContentDisplay) {
+        copyContentBtn.addEventListener('click', () => {
+            const textToCopy = modalContentDisplay.dataset.copyText; // Get text from data attribute
+            if (textToCopy && navigator.clipboard) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    showNotification("內容已複製！");
+                }).catch(err => {
+                    console.error('無法複製內容: ', err);
+                    showNotification("複製失敗，請手動複製。");
+                });
+            } else {
+                showNotification("複製功能無法使用或無內容可複製。");
+            }
+        });
+    }
+
+    // Optional: Close modal when clicking outside the modal content (Uses Generic Modal)
+    if (infoModal) {
+        infoModal.addEventListener('click', (event) => {
+            if (event.target === infoModal) { // Check if the click is on the background overlay
+                closeInfoModal(); // Use the close function
+            }
+        });
+    }
+    // --- End Generic Info Modal Logic ---
 
 
     // Help Panel Listeners
@@ -1122,10 +1167,10 @@ function setupEventListeners() {
 
         if (canTriggerShortcut && problemConfig) { // Ensure config is loaded for shortcuts
             if (e.ctrlKey && e.key === 'Enter') { e.preventDefault(); if (runButton && !runButton.disabled) { runButton.click(); } else { showNotification("執行環境尚未就緒或目前無法執行。"); } }
-            if (e.ctrlKey && (e.key === 's' || e.key === 'S')) { e.preventDefault(); if (saveCodeBtn && !saveCodeBtn.disabled) saveCodeBtn.click(); }
-            if (e.ctrlKey && e.shiftKey && (e.key === 'R' || e.key === 'r')) { e.preventDefault(); if (resetCodeBtn && !resetCodeBtn.disabled) resetCodeBtn.click(); }
+            else if (e.ctrlKey && (e.key === 's' || e.key === 'S')) { e.preventDefault(); if (saveCodeBtn && !saveCodeBtn.disabled) saveCodeBtn.click(); }
+            else if (e.ctrlKey && e.shiftKey && (e.key === 'R' || e.key === 'r')) { e.preventDefault(); if (resetCodeBtn && !resetCodeBtn.disabled) resetCodeBtn.click(); }
             // Optional: Ctrl+Shift+L for language switch
-            // if (e.ctrlKey && e.shiftKey && (e.key === 'L' || e.key === 'l')) { e.preventDefault(); if (switchEditorBtn && !switchEditorBtn.disabled) switchEditorBtn.click(); }
+            // else if (e.ctrlKey && e.shiftKey && (e.key === 'L' || e.key === 'l')) { e.preventDefault(); if (switchEditorBtn && !switchEditorBtn.disabled) switchEditorBtn.click(); }
         }
     });
 

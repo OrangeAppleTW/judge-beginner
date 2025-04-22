@@ -29,6 +29,9 @@
 
 <body>
     <nav class="header">
+        <button id="share-problem-btn" class="btn btn-outline" title="分享此題連結" style="display: none;">
+            <i class="fas fa-share-alt"></i> 分享此題
+        </button>
         <div class="header-content">
             <div class="logo">
                 <img src="static/logo.png" alt="Logo">
@@ -170,21 +173,21 @@
         </ul>
     </div>
 
-    <!-- Pincode Modal Structure -->
-    <div id="pincode-modal" class="modal" style="display: none;">
+    <!-- Generic Info Modal Structure -->
+    <div id="info-modal" class="modal" style="display: none;">
         <div class="modal-content">
-            <span id="close-modal-btn" class="close-modal-btn" title="關閉">&times;</span>
-            <h2>範例解答密碼</h2>
-            <p>可以提供此密碼給需要的使用者來查看範例解答。</p>
-            <div class="pincode-display-container">
-                <span id="modal-pincode-display" class="pincode-text"></span>
-                <button id="copy-pincode-btn" class="btn btn-outline btn-small" title="複製密碼">
-                    <i class="fas fa-copy"></i> 複製
-                </button>
+            <span id="close-info-modal-btn" class="close-modal-btn" title="關閉">&times;</span>
+            <h2 id="modal-title">標題</h2>
+            <p id="modal-description">描述</p>
+            <div class="modal-display-container">
+                <span id="modal-content-display" class="modal-content-text" data-copy-text=""></span>
             </div>
+            <button id="copy-content-btn" class="btn btn-outline btn-small" title="複製內容">
+                <i class="fas fa-copy"></i> 複製
+            </button>
         </div>
     </div>
-    <!-- End Pincode Modal -->
+    <!-- End Generic Info Modal -->
 
 
     <script src="script.js" defer></script>

@@ -335,6 +335,22 @@ li {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+#share-problem-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 999;
+}
+
+#copy-content-btn {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#modal-description {
+    margin-bottom: 10px;
+}
+
 #user-code {
     width: 100%;
     min-height: 300px;
