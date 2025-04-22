@@ -1078,7 +1078,7 @@ function setupEventListeners() {
                 if (problemInfo && problemInfo.pincode !== undefined) {
                     openInfoModal(
                         "範例解答密碼",
-                        "點擊以下按鈕就可以複製密碼，可以提供此密碼給需要的使用者來查看範例解答。",
+                        "請手動複製此密碼，並提供給需要的使用者查看範例解答。",
                         problemInfo.pincode, // Display pincode
                         problemInfo.pincode  // Copy pincode
                     );
@@ -1101,7 +1101,7 @@ function setupEventListeners() {
             const shareUrl = currentUrl.split('?')[0];
             openInfoModal(
                 "分享題目連結",
-                "點擊以下按鈕就可以複製連結並分享此題，分享的網址不會包含範例解答密碼。",
+                "請手動複製此連結，並提供給需要的使用者，此網址開啟的頁面不會包含範例解答密碼。",
                 shareUrl, // Display the clean URL
                 shareUrl  // Copy the clean URL
             );
