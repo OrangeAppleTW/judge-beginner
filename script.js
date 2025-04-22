@@ -1032,11 +1032,18 @@ function setupEventListeners() {
                 if (problemInfo && problemInfo.pincode !== undefined) {
                     const correctPincode = String(problemInfo.pincode);
                     if (inputPincode.trim() === correctPincode) {
-                        const newHash = `#/problem/${currentProblemIdFromHash}?pincode=${correctPincode}`;
-                        if (location.hash !== newHash) {
-                            location.hash = newHash; // Navigate
+                        // --- MODIFICATION START: Preserve embed=true on pincode success ---
+                        const { embed: currentEmbedStatus } = parseHash(); // Get current embed status
+                        let targetHash = `#/problem/${currentProblemIdFromHash}?pincode=${correctPincode}`;
+                        if (currentEmbedStatus === 'true') {
+                            targetHash += '&embed=true'; // Append if originally embedded
+                        }
+                        // --- MODIFICATION END ---
+
+                        if (location.hash !== targetHash) { // Use the potentially modified targetHash
+                            location.hash = targetHash; // Navigate
                         } else {
-                             showNotification("已在解答頁面。"); // Or reload if needed
+                             showNotification("已在解答頁面。"); // Or reload if needed, considering embed status might change this logic slightly if needed
                         }
                     } else {
                         showNotification("Pincode 錯誤！");
