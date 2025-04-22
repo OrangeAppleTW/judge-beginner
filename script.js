@@ -228,6 +228,8 @@ async function handleRoute() {
             }
 
             // --- Button Visibility Control ---
+            const isEmbedded = embed === 'true'; // Check if embedded
+
             if (loadExampleBtn) {
                 loadExampleBtn.style.display = shouldLoadExample ? 'none' : 'inline-flex';
             }
@@ -235,14 +237,14 @@ async function handleRoute() {
                 // Show view pincode button only if pincode is correct
                 viewPincodeBtn.style.display = shouldLoadExample ? 'inline-flex' : 'none';
             }
-             if (shareProblemBtn) {
-                 // <-- 修改: 根據 embed 決定是否顯示分享按鈕 -->
-                 if (embed === 'true') { // 只檢查 embed 參數是否為 'true'
-                     shareProblemBtn.style.display = 'inline-flex'; // 或 'block'，視情況而定
-                 } else {
-                     shareProblemBtn.style.display = 'none'; // 其他情況 (沒有 embed=true) 都隱藏
-                 }
-             }
+
+            // Hide specific buttons if embedded
+            const buttonsToHideWhenEmbedded = [shareProblemBtn, saveCodeBtn, importCodeBtn, exportCodeBtn];
+            buttonsToHideWhenEmbedded.forEach(btn => {
+                if (btn) { // Check if button element exists
+                    btn.style.display = isEmbedded ? 'none' : 'inline-flex'; // Hide if embedded, show otherwise
+                }
+            });
             // --- End Button Visibility Control ---
 
 
@@ -1018,7 +1020,7 @@ function setupEventListeners() {
                  return;
             }
 
-             const inputPincode = prompt("請輸入密碼以載入範例解答：");
+             const inputPincode = prompt("請向老師詢問密碼並填入。");
              if (inputPincode === null) return; // User cancelled
 
             try {
@@ -1093,8 +1095,8 @@ function setupEventListeners() {
 
                 if (problemInfo && problemInfo.pincode !== undefined) {
                     openInfoModal(
-                        "範例解答密碼",
-                        "請手動複製此密碼，並提供給需要的使用者查看範例解答。",
+                        "老師幫幫我",
+                        "這一題的密碼如下，但這只是其中一種的解題方式，並不是最好的解題方式唷！",
                         problemInfo.pincode, // Display pincode
                         problemInfo.pincode  // Copy pincode
                     );
