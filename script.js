@@ -88,6 +88,7 @@ function parseHash() {
     const problemPrefix = '#/problem/';
     let problemId = null;
     let urlPincode = null;
+    let embed = null; // <-- 新增: embed 參數
 
     const hashParts = hash.split('?');
     const pathPart = hashParts[0]; // e.g., #/problem/ID
@@ -99,10 +100,11 @@ function parseHash() {
     if (hashParts.length > 1) {
         const searchParams = new URLSearchParams(hashParts[1]);
         urlPincode = searchParams.get('pincode'); // Get pincode as string or null
+        embed = searchParams.get('embed'); // <-- 新增: 取得 embed 參數
     }
 
-    // console.log(`Parsed hash: problemId=${problemId}, urlPincode=${urlPincode}`); // Debug log
-    return { problemId, urlPincode };
+    // console.log(`Parsed hash: problemId=${problemId}, urlPincode=${urlPincode}, embed=${embed}`); // Debug log
+    return { problemId, urlPincode, embed }; // <-- 新增: 回傳 embed
 }
 
 
@@ -190,9 +192,14 @@ async function showProblemListView() {
 async function handleRoute() {
     const hash = location.hash;
     if (hash.startsWith('#/problems')) {
+        // --- 新增: 確保在列表頁隱藏分享按鈕 ---
+        if (shareProblemBtn) {
+            shareProblemBtn.style.display = 'none';
+        }
+        // --- 結束新增 ---
         await showProblemListView();
     } else if (hash.startsWith('#/problem/')) { // Check if it's a problem detail route
-        const { problemId, urlPincode } = parseHash(); // Parse the hash for ID and pincode
+        const { problemId, urlPincode, embed } = parseHash(); // <-- 修改: 取得 embed
 
         if (problemId) {
             let shouldLoadExample = false;
@@ -229,8 +236,13 @@ async function handleRoute() {
                 viewPincodeBtn.style.display = shouldLoadExample ? 'inline-flex' : 'none';
             }
              if (shareProblemBtn) {
-                 // Show share button whenever a problem is loaded
-                 shareProblemBtn.style.display = 'inline-flex';
+                 // <-- 修改: 根據 problemId 和 embed 決定是否顯示分享按鈕 -->
+                 const specificProblemId = '3A5FA4C1-B28E-469C-BB88-F238F5713CF3';
+                 if (problemId === specificProblemId && embed === 'true') {
+                     shareProblemBtn.style.display = 'inline-flex'; // 或 'block'，視情況而定
+                 } else {
+                     shareProblemBtn.style.display = 'none';
+                 }
              }
             // --- End Button Visibility Control ---
 
@@ -254,6 +266,11 @@ async function handleRoute() {
     // Ensure buttons are hidden if not on a problem page
     if (loadExampleBtn) loadExampleBtn.style.display = 'none';
     if (viewPincodeBtn) viewPincodeBtn.style.display = 'none';
+    // --- 新增: 確保在其他頁面隱藏分享按鈕 ---
+    if (shareProblemBtn) {
+        shareProblemBtn.style.display = 'none';
+    }
+    // --- 結束新增 ---
     await showProblemListView();
 }
 }
